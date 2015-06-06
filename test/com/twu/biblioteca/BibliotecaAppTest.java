@@ -35,8 +35,8 @@ public class BibliotecaAppTest {
         when(books.toString())
                 .thenReturn("Book List");
 
-        BibliotecaApp bibliotecaOutputHandler = new BibliotecaApp();
-        bibliotecaOutputHandler.displayListBooks(books);
+        BibliotecaApp biblioteca = new BibliotecaApp();
+        biblioteca.displayBookListDetails(books);
 
         assertEquals("Book List\n", outContent.toString());
     }

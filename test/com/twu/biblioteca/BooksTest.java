@@ -1,9 +1,7 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
-
 import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -11,7 +9,7 @@ import static org.mockito.Mockito.when;
 public class BooksTest {
 
     @Test
-    public void shouldReturnBookList() {
+    public void shouldReturnListOfBookDetails() {
         ArrayList<Book> booksList = new ArrayList<Book>();
 
         Book firstBookstub = mock(Book.class);

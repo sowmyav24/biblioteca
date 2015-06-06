@@ -6,7 +6,7 @@ public class BibliotecaApp {
         System.out.println(message.greetUser());
     }
 
-    public void displayListBooks(Books books){
+    public void displayBookListDetails(Books books){
         System.out.println(books.toString());
     }
 }
