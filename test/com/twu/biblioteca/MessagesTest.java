@@ -10,9 +10,9 @@ public class MessagesTest {
 
     @Test
     public void shouldReturnWelcomeString(){
-        Messages biblioteca = new Messages();
+        Messages message = new Messages();
 
-        String actualMessage = biblioteca.greetUser();
+        String actualMessage = message.greetUser();
 
         assertThat(actualMessage, is(equalTo("Welcome")));
     }
