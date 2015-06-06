@@ -29,11 +29,10 @@ public class BibliotecaAppTest {
         bibliotecaApp.displayWelcomeMessage(messageStub);
 
         assertEquals("Welcome !\n", outContent.toString());
-
     }
 
     @Test
-    public void shouldPrintListOfBooks(){
+    public void shouldPrintListOfBooks() {
         Books books = mock(Books.class);
         when(books.toString())
                 .thenReturn("Book List");
@@ -42,13 +41,10 @@ public class BibliotecaAppTest {
         bibliotecaOutputHandler.displayListBooks(books);
 
         assertEquals("Book List\n", outContent.toString());
-
     }
-
 
     @After
     public void cleanUpStreams() {
         System.setOut(null);
     }
-
 }
