@@ -30,6 +30,18 @@ public class BibliotecaAppTest {
     }
 
     @Test
+    public void shouldPrintMenu() {
+        Messages messageStub = mock(Messages.class);
+        when(messageStub.greetUser())
+                .thenReturn("Menu");
+
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        bibliotecaApp.displayWelcomeMessage(messageStub);
+
+        assertEquals("Menu\n", outContent.toString());
+    }
+
+    @Test
     public void shouldPrintListOfBooks() {
         Books books = mock(Books.class);
         when(books.toString())
