@@ -7,13 +7,13 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class MenuTest {
+
     @Test
     public void shouldReturnMenuString(){
         Menu menu = new Menu();
 
-        String actualMessage = menu.displayMenu();
+        String actualMessage = menu.returnMenu();
 
         assertThat(actualMessage, is(equalTo("Menu\n" +"1.List Books")));
     }
-
 }
