@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -13,6 +14,7 @@ import static org.mockito.Mockito.when;
 
 public class MenuViewTest {
     final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private ByteArrayInputStream byteArrayInputStream;
 
     @Before
     public void setUpStreams() {
@@ -29,6 +31,21 @@ public class MenuViewTest {
         menuview.displayMenu();
 
         assertEquals("Menu", outContent.toString());
+    }
+
+    @Test
+    public void shouldBeAbleToGetAMenuOptionFromTheUser() {
+        String inputData = "1";
+        byteArrayInputStream = new ByteArrayInputStream(inputData.getBytes());
+        System.setIn(byteArrayInputStream);
+        Menu menuStub = mock(Menu.class);
+        when(menuStub.returnMenu())
+                .thenReturn("Menu");
+        MenuView menuview = new MenuView(menuStub);
+
+        int actualOption = menuview.readMenuOption();
+
+        assertEquals(1, actualOption);
     }
 
     @After
