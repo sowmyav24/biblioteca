@@ -9,9 +9,5 @@ public class BibliotecaApp {
     public void displayMenu(Messages message) {
         System.out.println(message.displayMenu());
     }
-
-    public void displayBookListDetails(Books books) {
-        System.out.println(books.toString());
-    }
 }
 

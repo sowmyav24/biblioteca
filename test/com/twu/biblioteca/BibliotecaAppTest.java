@@ -40,19 +40,7 @@ public class BibliotecaAppTest {
 
         assertEquals("Menu\n", outContent.toString());
     }
-
-    @Test
-    public void shouldPrintListOfBooks() {
-        Books books = mock(Books.class);
-        when(books.toString())
-                .thenReturn("Book List");
-
-        BibliotecaApp biblioteca = new BibliotecaApp();
-        biblioteca.displayBookListDetails(books);
-
-        assertEquals("Book List\n", outContent.toString());
-    }
-
+    
     @After
     public void cleanUpStreams() {
         System.setOut(null);
