@@ -6,7 +6,9 @@ public class Menu {
     HashMap<Integer, MenuActionPerformed> menuItems = new HashMap<Integer, MenuActionPerformed>();
 
     public Menu() {
+
         menuItems.put(1, new ListBooks(new BooksView(new Books())));
+        menuItems.put(2, new InvalidMenuOption());
     }
 
     public String returnMenu() {
@@ -16,7 +18,11 @@ public class Menu {
 
     public void selectOption(MenuView menuView) {
         int optionNo = menuView.readMenuOption();
-        menuItems.get(optionNo).compute();
+        MenuActionPerformed menuOption = menuItems.get(optionNo);
+        if (menuOption == null)
+            new InvalidMenuOption().compute();
+        else
+            menuOption.compute();
     }
 }
 

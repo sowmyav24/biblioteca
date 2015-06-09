@@ -36,10 +36,10 @@ public class MenuTest {
         Menu menu = new Menu();
         MenuView menuViewStub = mock(MenuView.class);
         when(menuViewStub.readMenuOption())
-                .thenReturn(1);
+                .thenReturn(2);
         menu.selectOption(menuViewStub);
 
-        assertEquals("The Monk Who Sold His Ferrari, Robin Sharma, 2007\n", outContent.toString());
+        assertEquals("Please Select a valid Option\n", outContent.toString());
 
     }
 

@@ -11,6 +11,7 @@ public class MenuView {
     }
 
     public void displayMenu() {
+
         System.out.print(menu.returnMenu());
     }
 
