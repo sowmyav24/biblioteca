@@ -3,13 +3,13 @@ package com.twu.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.times;
 
 public class ListBooksTest {
     final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -22,13 +22,10 @@ public class ListBooksTest {
     @Test
     public void shouldPrintListOfAllBooks() {
         BooksView booksViewStub = mock(BooksView.class);
-        when(booksViewStub.toString())
-                .thenReturn("BookList");
-
-        ListBooks listbooks = new ListBooks();
+        ListBooks listbooks = new ListBooks(booksViewStub);
         listbooks.compute();
 
-        assertEquals("The Monk Who Sold His Ferrari, Robin Sharma, 2007\n", outContent.toString());
+        Mockito.verify(booksViewStub,times(1)).displayBooks();
     }
 
     @After

@@ -6,7 +6,7 @@ public class Menu {
     HashMap<Integer, MenuActionPerformed> menuItems = new HashMap<Integer, MenuActionPerformed>();
 
     public Menu() {
-        menuItems.put(1, new ListBooks());
+        menuItems.put(1, new ListBooks(new BooksView(new Books())));
     }
 
     public String returnMenu() {
