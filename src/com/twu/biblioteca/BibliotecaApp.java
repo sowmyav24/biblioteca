@@ -7,8 +7,8 @@ public class BibliotecaApp {
         System.out.println(message.greetUser());
     }
 
-    public void displayMenu(Messages message) {
-        System.out.println(message.displayMenu());
+    public void displayMenu(MenuView menuView) {
+       menuView.displayMenu();
     }
 }
 
