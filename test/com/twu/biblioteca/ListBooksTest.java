@@ -21,11 +21,12 @@ public class ListBooksTest {
 
     @Test
     public void shouldPrintListOfAllBooks() {
-        BooksView booksViewStub = mock(BooksView.class);
-        ListBooks listbooks = new ListBooks(booksViewStub);
+        BooksController booksControllerStub = mock(BooksController.class);
+        ListBooks listbooks = new ListBooks(booksControllerStub);
+
         listbooks.compute();
 
-        Mockito.verify(booksViewStub,times(1)).displayBooks();
+        Mockito.verify(booksControllerStub, times(1)).returnListOfAllBooks();
     }
 
     @After

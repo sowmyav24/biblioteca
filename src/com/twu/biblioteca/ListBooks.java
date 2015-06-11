@@ -2,13 +2,13 @@ package com.twu.biblioteca;
 
 public class ListBooks implements MenuActionPerformed {
 
-    private BooksView booksView;
+    private BooksController booksController;
 
-    ListBooks(BooksView booksView) {
-
-        this.booksView=booksView;
+    ListBooks(BooksController booksController) {
+        this.booksController = booksController;
     }
+
     public void compute() {
-        booksView.displayBooks();
+        booksController.returnListOfAllBooks();
     }
 }

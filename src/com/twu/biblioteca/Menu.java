@@ -3,12 +3,10 @@ package com.twu.biblioteca;
 import java.util.HashMap;
 
 public class Menu {
-    HashMap<Integer, MenuActionPerformed> menuItems = new HashMap<Integer, MenuActionPerformed>();
+    HashMap<Integer, MenuActionPerformed> menuItems;
 
-    public Menu() {
-
-    //    menuItems.put(1, new ListBooks(new BooksView(new Books())));
-      //  menuItems.put(2, new InvalidMenuOption());
+    public Menu(HashMap menuItems) {
+        this.menuItems=menuItems;
     }
 
     public String returnMenu() {
