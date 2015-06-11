@@ -12,11 +12,11 @@ public class BooksControllerTest {
         when(booksStub.toString())
                 .thenReturn("Book List");
 
-        BibliotecaApp bibliotecaAppStub = mock(BibliotecaApp.class);
-        BooksController booksController = new BooksController(bibliotecaAppStub, booksStub);
+        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, booksStub);
 
         booksController.returnListOfAllBooks();
 
-        verify(bibliotecaAppStub, times(1)).displayMessage(booksStub.toString());
+        verify(bibliotecaAppViewStub, times(1)).displayMessage(anyString());
     }
 }

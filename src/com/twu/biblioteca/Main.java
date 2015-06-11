@@ -12,11 +12,11 @@ public class Main {
 
         Books books = new Books(book);
 
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        BibliotecaAppView bibliotecaAppView = new BibliotecaAppView();
 
-        BooksController booksController = new BooksController(bibliotecaApp,books);
+        BooksController booksController = new BooksController(bibliotecaAppView,books);
 
         menuItems.put(1, new ListBooks(booksController));
-        menuItems.put(2, new InvalidMenuOption());
+        menuItems.put(2, new InvalidMenuOption(bibliotecaAppView));
     }
 }

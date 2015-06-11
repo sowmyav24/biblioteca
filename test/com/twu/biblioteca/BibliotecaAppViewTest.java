@@ -9,7 +9,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class BibliotecaAppTest {
+public class BibliotecaAppViewTest {
     final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -19,9 +19,9 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldPrintWelcomeMessage() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        BibliotecaAppView bibliotecaAppView = new BibliotecaAppView();
 
-        bibliotecaApp.displayMessage(Message.WELCOME_MESSAGE);
+        bibliotecaAppView.displayMessage(Message.WELCOME_MESSAGE);
 
         assertEquals("Welcome to BIBLIOTECA\n", outContent.toString());
     }

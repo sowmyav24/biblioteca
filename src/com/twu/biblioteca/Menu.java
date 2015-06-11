@@ -14,13 +14,13 @@ public class Menu {
         return "Menu\n1.List Books";
     }
 
-    public void selectOption(MenuView menuView) {
-        int optionNo = menuView.readMenuOption();
-        MenuActionPerformed menuOption = menuItems.get(optionNo);
-        if (menuOption == null)
-            new InvalidMenuOption().compute();
-        else
-            menuOption.compute();
-    }
+//    public void selectOption(MenuView menuView) {
+//        int optionNo = menuView.readMenuOption();
+//        MenuActionPerformed menuOption = menuItems.get(optionNo);
+//        if (menuOption == null)
+//            new InvalidMenuOption().compute();
+//        else
+//            menuOption.compute();
+//    }
 }
 

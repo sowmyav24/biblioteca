@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class BibliotecaApp {
+public class BibliotecaAppView {
 
     public void displayMessage(String message) {
 

@@ -3,11 +3,14 @@ package com.twu.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 
 public class InvalidMenuOptionTest {
     final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -19,11 +22,12 @@ public class InvalidMenuOptionTest {
 
     @Test
     public void shouldPrintMessageForInvalidOption() {
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
+        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
+        InvalidMenuOption invalidMenuOption = new InvalidMenuOption(bibliotecaAppViewStub);
 
         invalidMenuOption.compute();
 
-        assertEquals("Please Select a valid Option\n", outContent.toString());
+        Mockito.verify(bibliotecaAppViewStub, times(1)).displayMessage(anyString());
     }
 
     @After
