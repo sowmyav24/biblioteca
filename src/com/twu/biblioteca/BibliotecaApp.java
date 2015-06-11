@@ -2,13 +2,10 @@ package com.twu.biblioteca;
 
 public class BibliotecaApp {
 
-    public void displayWelcomeMessage(Messages message) {
+    public void displayMessage(String message) {
 
-        System.out.println(message.greetUser());
+        System.out.println(message);
     }
 
-    public void displayMenu(MenuView menuView) {
-       menuView.displayMenu();
-    }
 }
 

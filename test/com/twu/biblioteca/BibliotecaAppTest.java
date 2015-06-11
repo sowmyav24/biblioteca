@@ -8,8 +8,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class BibliotecaAppTest {
     final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -22,25 +20,10 @@ public class BibliotecaAppTest {
     @Test
     public void shouldPrintWelcomeMessage() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        Messages messageStub = mock(Messages.class);
-        when(messageStub.greetUser())
-                .thenReturn("Welcome !");
 
-        bibliotecaApp.displayWelcomeMessage(messageStub);
+        bibliotecaApp.displayMessage(Message.WELCOME_MESSAGE);
 
-        assertEquals("Welcome !\n", outContent.toString());
-    }
-
-    @Test
-    public void shouldPrintMenu() {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp();
-        Messages messageStub = mock(Messages.class);
-        when(messageStub.greetUser())
-                .thenReturn("Menu");
-
-        bibliotecaApp.displayWelcomeMessage(messageStub);
-
-        assertEquals("Menu\n", outContent.toString());
+        assertEquals("Welcome to BIBLIOTECA\n", outContent.toString());
     }
 
     @After
