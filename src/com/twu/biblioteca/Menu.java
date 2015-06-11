@@ -11,9 +11,11 @@ public class Menu {
         this.bibliotecaAppView = bibliotecaAppView;
     }
 
-    public void returnMenu() {
-        String menu = "Menu\n1.List Books\n2.Quit";
-        bibliotecaAppView.displayMessage(menu);
+    public void compute(int menuOption) {
+        if (menuItems.get(menuOption) == null)
+            menuItems.get(2).compute();
+        else
+            menuItems.get(menuOption).compute();
     }
 }
 
