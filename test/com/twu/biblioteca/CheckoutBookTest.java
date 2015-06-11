@@ -13,7 +13,7 @@ public class CheckoutBookTest {
         CheckoutBook checkoutBook = new CheckoutBook(bibliotecaAppViewStub);
 
         checkoutBook.compute();
-        
+
         verify(bibliotecaAppViewStub, times(1)).readInput();
 
     }

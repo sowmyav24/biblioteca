@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class BookTest {
@@ -15,4 +16,15 @@ public class BookTest {
 
         assertThat(actualDetails, is(equalTo("The Monk Who Sold His Ferrari, Robin Sharma, 2007")));
     }
+
+    @Test
+    public void shouldCheckIfBookNamesMatch() {
+        Book book= new Book("BookName","BookAuthor","Year");
+
+        Boolean actualResult=book.equals("BookName");
+
+        assertEquals(true,actualResult);
+
+    }
+
 }
