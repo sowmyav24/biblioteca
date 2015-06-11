@@ -4,23 +4,16 @@ import java.util.HashMap;
 
 public class Menu {
     HashMap<Integer, MenuActionPerformed> menuItems;
+    BibliotecaAppView bibliotecaAppView;
 
-    public Menu(HashMap menuItems) {
-        this.menuItems=menuItems;
+    public Menu(HashMap menuItems, BibliotecaAppView bibliotecaAppView) {
+        this.menuItems = menuItems;
+        this.bibliotecaAppView = bibliotecaAppView;
     }
 
-    public String returnMenu() {
-
-        return "Menu\n1.List Books";
+    public void returnMenu() {
+        String menu = "Menu\n1.List Books\n2.Quit";
+        bibliotecaAppView.displayMessage(menu);
     }
-
-//    public void selectOption(MenuView menuView) {
-//        int optionNo = menuView.readMenuOption();
-//        MenuActionPerformed menuOption = menuItems.get(optionNo);
-//        if (menuOption == null)
-//            new InvalidMenuOption().compute();
-//        else
-//            menuOption.compute();
-//    }
 }
 

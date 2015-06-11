@@ -3,13 +3,11 @@ package com.twu.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.*;
 
 public class ListBooksTest {
     final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -26,7 +24,7 @@ public class ListBooksTest {
 
         listbooks.compute();
 
-        Mockito.verify(booksControllerStub, times(1)).returnListOfAllBooks();
+        verify(booksControllerStub, times(1)).returnListOfAllBooks();
     }
 
     @After
