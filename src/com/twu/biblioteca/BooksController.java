@@ -13,4 +13,7 @@ public class BooksController {
         String listOfBooks = books.toString();
         bibliotecaAppView.displayMessage(listOfBooks);
     }
+
+    public void checkout(String bookInput) {
+    }
 }

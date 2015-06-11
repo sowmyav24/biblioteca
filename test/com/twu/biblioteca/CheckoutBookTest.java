@@ -9,8 +9,9 @@ public class CheckoutBookTest {
     @Test
     public void shouldReadBookName() {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
+        BooksController booksControllerStub = mock(BooksController.class);
 
-        CheckoutBook checkoutBook = new CheckoutBook(bibliotecaAppViewStub);
+        CheckoutBook checkoutBook = new CheckoutBook(bibliotecaAppViewStub,booksControllerStub);
 
         checkoutBook.compute();
 

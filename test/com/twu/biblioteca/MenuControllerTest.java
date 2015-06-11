@@ -28,5 +28,4 @@ public class MenuControllerTest {
 
         verify(menuStub, times(1)).compute(anyInt());
     }
-
 }
