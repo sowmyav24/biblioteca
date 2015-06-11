@@ -4,11 +4,9 @@ import java.util.HashMap;
 
 public class Menu {
     HashMap<Integer, MenuActionPerformed> menuItems;
-    BibliotecaAppView bibliotecaAppView;
 
-    public Menu(HashMap menuItems, BibliotecaAppView bibliotecaAppView) {
+    public Menu(HashMap menuItems) {
         this.menuItems = menuItems;
-        this.bibliotecaAppView = bibliotecaAppView;
     }
 
     public void compute(int menuOption) {
