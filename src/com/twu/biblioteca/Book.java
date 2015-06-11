@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+//Contains details of a particular Book
+
 public class Book {
     String author;
     String name;

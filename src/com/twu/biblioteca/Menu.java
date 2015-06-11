@@ -7,8 +7,8 @@ public class Menu {
 
     public Menu() {
 
-        menuItems.put(1, new ListBooks(new BooksView(new Books())));
-        menuItems.put(2, new InvalidMenuOption());
+    //    menuItems.put(1, new ListBooks(new BooksView(new Books())));
+      //  menuItems.put(2, new InvalidMenuOption());
     }
 
     public String returnMenu() {

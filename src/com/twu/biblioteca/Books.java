@@ -2,11 +2,13 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class Books {
-    private ArrayList<Book> books = new ArrayList();
+//Contains Details of all Books in a list
 
-    Books(){
-        books.add(new Book("The Monk Who Sold His Ferrari","Robin Sharma", "2007"));
+public class Books {
+    private ArrayList<Book> books;
+
+    Books(ArrayList<Book> books) {
+        this.books = books;
     }
 
     @Override
