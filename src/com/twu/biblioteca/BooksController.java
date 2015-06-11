@@ -15,5 +15,9 @@ public class BooksController {
     }
 
     public void checkout(String bookInput) {
+        if(books.checkoutBook(bookInput))
+            bibliotecaAppView.displayMessage(Message.SUCCESSFULL_CHECKOUT);
+        else
+            bibliotecaAppView.displayMessage(Message.UNSUCCESSFULL_CHECKOUT);
     }
 }

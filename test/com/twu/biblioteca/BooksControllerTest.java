@@ -2,6 +2,8 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+
 import static org.mockito.Mockito.*;
 
 public class BooksControllerTest {
@@ -18,5 +20,20 @@ public class BooksControllerTest {
         booksController.returnListOfAllBooks();
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(anyString());
+    }
+
+
+    @Test
+    public void shouldCheckoutBook() {
+        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
+        HashMap<Book, Boolean> bookList = new HashMap<>();
+        bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), true);
+        Books books = new Books(bookList);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, books);
+
+        booksController.checkout("The Monk Who Sold His Ferrari");
+
+        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_CHECKOUT);
+
     }
 }
