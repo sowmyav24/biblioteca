@@ -15,7 +15,8 @@ public class Books {
     public String toString() {
         String bookList = new String();
         for (Book book : books.keySet())
-            bookList += book.toString() + "\n";
+            if (books.get(book) == true)
+                bookList += book.toString() + "\n";
         return bookList;
     }
 
