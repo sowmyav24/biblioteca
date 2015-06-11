@@ -24,7 +24,5 @@ public class BookTest {
         Boolean actualResult=book.equals("BookName");
 
         assertEquals(true,actualResult);
-
     }
-
 }
