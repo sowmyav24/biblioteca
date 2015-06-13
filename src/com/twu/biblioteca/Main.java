@@ -1,21 +1,27 @@
 package com.twu.biblioteca;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        HashMap<Book, Boolean> book = new HashMap<Book, Boolean>();
-        book.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), true);
+        Scanner scanner = new Scanner(System.in);
 
-        HashMap<Integer, MenuActionPerformed> menuItems = new HashMap<Integer, MenuActionPerformed>();
+        HashMap<Book, Boolean> book = new HashMap<>();
+        book.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), true);
 
         Books books = new Books(book);
 
-        BibliotecaAppView bibliotecaAppView = new BibliotecaAppView();
+        BibliotecaAppView bibliotecaAppView = new BibliotecaAppView(scanner);
 
         BooksController booksController = new BooksController(bibliotecaAppView, books);
 
+        HashMap<Integer, MenuActionPerformed> menuItems = new HashMap<>();
         menuItems.put(1, new ListBooks(booksController));
         menuItems.put(2, new InvalidMenuOption(bibliotecaAppView));
+
+        Menu menu = new Menu(menuItems);
+
+        MenuController menuController = new MenuController(bibliotecaAppView, menu);
     }
 }

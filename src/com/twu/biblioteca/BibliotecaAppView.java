@@ -3,6 +3,11 @@ package com.twu.biblioteca;
 import java.util.Scanner;
 
 public class BibliotecaAppView {
+    private Scanner scanner;
+
+    BibliotecaAppView(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public void displayMessage(String message) {
 
@@ -10,7 +15,6 @@ public class BibliotecaAppView {
     }
 
     public String readInput() {
-        Scanner scanner= new Scanner(System.in);
         return scanner.nextLine();
     }
 }
