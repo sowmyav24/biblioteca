@@ -20,7 +20,7 @@ public class Books {
         return bookList;
     }
 
-    public Boolean checkoutBook(String bookName) {
+    public Boolean checkoutBook(Book bookName) {
         for (Book book : books.keySet())
             if (book.equals(bookName)) {
                 books.put(book, false);

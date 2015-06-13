@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
@@ -21,7 +22,7 @@ public class BookTest {
     public void shouldCheckIfBookNamesMatch() {
         Book book= new Book("BookName","BookAuthor","Year");
 
-        Boolean actualResult=book.equals("BookName");
+        Boolean actualResult=book.equals(new Book("BookName","",""));
 
         assertEquals(true,actualResult);
     }

@@ -12,8 +12,7 @@ public class CheckoutBook implements MenuActionPerformed {
 
     @Override
     public void compute() {
-        String bookInput = bibliotecaAppView.readInput();
-        booksController.checkout(bookInput);
+        booksController.checkout();
     }
 
 }

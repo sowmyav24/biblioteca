@@ -14,8 +14,11 @@ public class BooksController {
         bibliotecaAppView.displayMessage(listOfBooks);
     }
 
-    public void checkout(String bookInput) {
-        if(books.checkoutBook(bookInput))
+    public void checkout() {
+        String bookInput = bibliotecaAppView.readInput();
+        BookItemTokenizer bookItemTokenizer = new BookItemTokenizer();
+        Book book = bookItemTokenizer.getBook(bookInput);
+        if (books.checkoutBook(book))
             bibliotecaAppView.displayMessage(Message.SUCCESSFULL_CHECKOUT);
         else
             bibliotecaAppView.displayMessage(Message.UNSUCCESSFULL_CHECKOUT);

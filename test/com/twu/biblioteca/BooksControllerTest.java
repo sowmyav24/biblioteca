@@ -26,12 +26,14 @@ public class BooksControllerTest {
     @Test
     public void shouldCheckoutBook() {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
+        when(bibliotecaAppViewStub.readInput())
+                .thenReturn("The Monk Who Sold His Ferrari");
         HashMap<Book, Boolean> bookList = new HashMap<>();
         bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), true);
         Books books = new Books(bookList);
         BooksController booksController = new BooksController(bibliotecaAppViewStub, books);
 
-        booksController.checkout("The Monk Who Sold His Ferrari");
+        booksController.checkout();
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_CHECKOUT);
 

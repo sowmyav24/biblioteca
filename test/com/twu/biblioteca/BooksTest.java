@@ -25,7 +25,7 @@ public class BooksTest {
         bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), true);
         Books books = new Books(bookList);
 
-        Boolean actualList = books.checkoutBook("The Monk Who Sold His Ferrari");
+        Boolean actualList = books.checkoutBook(new Book("The Monk Who Sold His Ferrari", " ", " "));
 
         assertEquals(true, actualList);
     }
