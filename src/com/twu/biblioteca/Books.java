@@ -29,12 +29,12 @@ public class Books {
         return false;
     }
 
-//    public Boolean returnBook(Book bookName) {
-//        for (Book book : books.keySet())
-//            if (book.equals(bookName) && (books.get(book) == false)) {
-//                books.put(book, true);
-//                return true;
-//            }
-//        return false;
-//    }
+    public Boolean returnBook(Book bookName) {
+        for (Book book : books.keySet())
+            if (book.equals(bookName) && (books.get(book) == false)) {
+                books.put(book, true);
+                return true;
+            }
+        return false;
+    }
 }

@@ -29,4 +29,15 @@ public class BooksTest {
 
         assertEquals(true, actualList);
     }
+
+    @Test
+    public void shouldReturnIfBookCanBeReturned() {
+        HashMap<Book, Boolean> bookList = new HashMap<>();
+        bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), false);
+        Books books = new Books(bookList);
+
+        Boolean actualList = books.returnBook(new Book("The Monk Who Sold His Ferrari", " ", " "));
+
+        assertEquals(true, actualList);
+    }
 }
