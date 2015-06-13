@@ -24,4 +24,7 @@ public class BooksController {
         else
             bibliotecaAppView.displayMessage(Message.UNSUCCESSFULL_CHECKOUT);
     }
+
+    public void returnBook() {
+    }
 }

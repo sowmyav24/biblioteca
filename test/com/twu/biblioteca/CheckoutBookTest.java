@@ -16,7 +16,5 @@ public class CheckoutBookTest {
         checkoutBook.compute();
 
         verify(booksControllerStub, times(1)).checkout();
-
     }
-
 }
