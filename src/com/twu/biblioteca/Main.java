@@ -8,7 +8,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         HashMap<Book, Boolean> book = new HashMap<>();
-        book.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), true);
+        book.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), false);
 
         Books books = new Books(book);
 

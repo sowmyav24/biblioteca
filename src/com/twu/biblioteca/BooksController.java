@@ -26,5 +26,8 @@ public class BooksController {
     }
 
     public void returnBook() {
+        String bookInput = bibliotecaAppView.readInput();
+        Book book = bookItemTokenizer.getBook(bookInput);
+
     }
 }
