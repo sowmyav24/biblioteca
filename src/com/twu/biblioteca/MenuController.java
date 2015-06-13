@@ -12,8 +12,4 @@ public class MenuController {
     public void selectOption() {
         menu.compute(Integer.parseInt(bibliotecaAppView.readInput()));
     }
-
-    public void returnMenu() {
-        bibliotecaAppView.displayMessage(Message.MENU_LIST);
-    }
 }

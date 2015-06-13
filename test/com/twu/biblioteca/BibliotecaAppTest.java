@@ -18,4 +18,15 @@ public class BibliotecaAppTest {
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.WELCOME_MESSAGE);
     }
 
+    @Test
+    public void shouldCallDisplayToDisplayMenu() {
+        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
+        MenuController menuController = mock(MenuController.class);
+        BooksController booksController = mock(BooksController.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppViewStub,menuController,booksController);
+
+        bibliotecaApp.start();
+
+        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.MENU_LIST);
+    }
 }
