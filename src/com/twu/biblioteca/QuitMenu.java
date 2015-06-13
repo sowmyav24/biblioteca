@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
-public class QuitMenu {
+public class QuitMenu implements MenuActionPerformed{
     public static String quitMessage;
 
-    public void exitSystem() {
+    public void compute() {
         quitMessage = "End";
         System.exit(0);
     }

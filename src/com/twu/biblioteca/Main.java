@@ -18,7 +18,8 @@ public class Main {
 
         HashMap<Integer, MenuActionPerformed> menuItems = new HashMap<>();
         menuItems.put(1, new ListBooks(booksController));
-        menuItems.put(2, new InvalidMenuOption(bibliotecaAppView));
+        menuItems.put(2, new QuitMenu());
+        menuItems.put(3, new InvalidMenuOption(bibliotecaAppView));
 
         Menu menu = new Menu(menuItems);
 
