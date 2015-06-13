@@ -22,7 +22,7 @@ public class Books {
 
     public Boolean checkoutBook(String bookName) {
         for (Book book : books.keySet())
-            if (book.name == bookName) {
+            if (book.equals(bookName)) {
                 books.put(book, false);
                 return true;
             }

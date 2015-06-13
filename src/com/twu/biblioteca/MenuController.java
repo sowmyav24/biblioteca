@@ -9,7 +9,7 @@ public class MenuController {
         this.menu = menu;
     }
 
-    public void selectOption() {
-        menu.compute(Integer.parseInt(bibliotecaAppView.readInput()));
+    public void selectOption(String menuOption) {
+        menu.compute(Integer.parseInt(menuOption));
     }
 }
