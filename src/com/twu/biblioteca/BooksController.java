@@ -28,6 +28,9 @@ public class BooksController {
     public void returnBook() {
         String bookInput = bibliotecaAppView.readInput();
         Book book = bookItemTokenizer.getBook(bookInput);
-
+        if (books.returnBook(book))
+            bibliotecaAppView.displayMessage(Message.SUCCESSFULL_RETURN);
+        else
+            bibliotecaAppView.displayMessage(Message.UNSUCCESSFULL_RETURN);
     }
 }

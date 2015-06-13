@@ -23,7 +23,6 @@ public class BooksControllerTest {
         verify(bibliotecaAppViewStub, times(1)).displayMessage(anyString());
     }
 
-
     @Test
     public void shouldCheckoutBook() {
         BookItemTokenizer bookItemTokenizer = new BookItemTokenizer();
@@ -38,6 +37,23 @@ public class BooksControllerTest {
         booksController.checkout();
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_CHECKOUT);
+
+    }
+
+    @Test
+    public void shouldReturnBook() {
+        BookItemTokenizer bookItemTokenizer = new BookItemTokenizer();
+        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
+        when(bibliotecaAppViewStub.readInput())
+                .thenReturn("The Monk Who Sold His Ferrari");
+        HashMap<Book, Boolean> bookList = new HashMap<>();
+        bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), false);
+        Books books = new Books(bookList);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, books, bookItemTokenizer);
+
+        booksController.returnBook();
+
+        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_RETURN);
 
     }
 }
