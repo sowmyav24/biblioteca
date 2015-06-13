@@ -29,4 +29,16 @@ public class BibliotecaAppTest {
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.MENU_LIST);
     }
+
+    @Test
+    public void shouldCallDisplayListOfBooks() {
+        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
+        MenuController menuControllerStub = mock(MenuController.class);
+        BooksController booksController = mock(BooksController.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppViewStub,menuControllerStub,booksController);
+
+        bibliotecaApp.start();
+
+        verify(menuControllerStub, times(1)).selectOption(anyString());
+    }
 }
