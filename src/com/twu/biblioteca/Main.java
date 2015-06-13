@@ -14,12 +14,15 @@ public class Main {
 
         BibliotecaAppView bibliotecaAppView = new BibliotecaAppView(scanner);
 
-        BooksController booksController = new BooksController(bibliotecaAppView, books);
+        BookItemTokenizer bookItemTokenizer = new BookItemTokenizer();
+
+        BooksController booksController = new BooksController(bibliotecaAppView, books, bookItemTokenizer);
 
         HashMap<Integer, MenuActionPerformed> menuItems = new HashMap<>();
         menuItems.put(1, new ListBooks(booksController));
-        menuItems.put(2, new QuitMenu());
-        menuItems.put(3, new InvalidMenuOption(bibliotecaAppView));
+        menuItems.put(2, new CheckoutBook(bibliotecaAppView, booksController));
+        menuItems.put(3, new QuitMenu());
+        menuItems.put(4, new InvalidMenuOption(bibliotecaAppView));
 
         Menu menu = new Menu(menuItems);
 

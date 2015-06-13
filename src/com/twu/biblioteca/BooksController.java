@@ -3,10 +3,12 @@ package com.twu.biblioteca;
 public class BooksController {
     private BibliotecaAppView bibliotecaAppView;
     private Books books;
+    private BookItemTokenizer bookItemTokenizer;
 
-    public BooksController(BibliotecaAppView bibliotecaAppView, Books books) {
+    public BooksController(BibliotecaAppView bibliotecaAppView, Books books,BookItemTokenizer bookItemTokenizer) {
         this.bibliotecaAppView = bibliotecaAppView;
         this.books = books;
+        this.bookItemTokenizer = bookItemTokenizer;
     }
 
     public void returnListOfAllBooks() {
@@ -16,7 +18,6 @@ public class BooksController {
 
     public void checkout() {
         String bookInput = bibliotecaAppView.readInput();
-        BookItemTokenizer bookItemTokenizer = new BookItemTokenizer();
         Book book = bookItemTokenizer.getBook(bookInput);
         if (books.checkoutBook(book))
             bibliotecaAppView.displayMessage(Message.SUCCESSFULL_CHECKOUT);
