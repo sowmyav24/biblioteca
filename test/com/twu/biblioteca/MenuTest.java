@@ -10,14 +10,26 @@ import static org.mockito.Mockito.verify;
 
 public class MenuTest {
     @Test
-    public void shouldCallTheAppropriateListBooksAction() {
-        HashMap<Integer,MenuActionPerformed> menuActionPerformed =new HashMap<>();
+    public void shouldCallTheAppropriateAction() {
+        HashMap<Integer, MenuActionPerformed> menuActionPerformed = new HashMap<>();
         ListBooks listBooks = mock(ListBooks.class);
-        menuActionPerformed.put(1,listBooks);
-        Menu menu=new Menu(menuActionPerformed);
+        menuActionPerformed.put(1, listBooks);
+        Menu menu = new Menu(menuActionPerformed);
 
         menu.compute(1);
 
-        verify(listBooks,times(1)).compute();
+        verify(listBooks, times(1)).compute();
+    }
+
+    @Test
+    public void shouldCallTheInvalidOption() {
+        HashMap<Integer, MenuActionPerformed> menuActionPerformed = new HashMap<>();
+        InvalidMenuOption invalidMenuOption = mock(InvalidMenuOption.class);
+        menuActionPerformed.put(4, invalidMenuOption);
+        Menu menu = new Menu(menuActionPerformed);
+
+        menu.compute(4);
+
+        verify(invalidMenuOption, times(1)).compute();
     }
 }

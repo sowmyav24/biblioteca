@@ -29,7 +29,7 @@ public class BooksTest {
 
         assertEquals(true, actualList);
     }
-
+    
     @Test
     public void shouldReturnIfBookCanBeReturned() {
         HashMap<Book, Boolean> bookList = new HashMap<>();

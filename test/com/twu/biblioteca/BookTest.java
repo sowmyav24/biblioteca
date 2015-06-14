@@ -22,8 +22,17 @@ public class BookTest {
     public void shouldCheckIfBookNamesMatch() {
         Book book= new Book("BookName","BookAuthor","Year");
 
-        Boolean actualResult=book.equals(new Book("BookName","",""));
+        Boolean actualResult=book.equals(new Book("BookName", "", ""));
 
-        assertEquals(true,actualResult);
+        assertEquals(true, actualResult);
+    }
+
+    @Test
+    public void shouldCheckIfBookNamesDoesNotMatch() {
+        Book book= new Book("BookName","BookAuthor","Year");
+
+        Boolean actualResult=book.equals(new String("Book"));
+
+        assertEquals(false,actualResult);
     }
 }
