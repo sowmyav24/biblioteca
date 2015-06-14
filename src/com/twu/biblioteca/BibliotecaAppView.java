@@ -15,7 +15,12 @@ public class BibliotecaAppView {
     }
 
     public String readInput() {
-        return scanner.nextLine();
+        try {
+            Integer.parseInt(scanner.nextLine());
+            return scanner.nextLine();
+        } catch (NumberFormatException n) {
+            return "4";
+        }
     }
 }
 

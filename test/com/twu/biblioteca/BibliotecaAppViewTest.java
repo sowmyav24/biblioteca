@@ -40,9 +40,21 @@ public class BibliotecaAppViewTest {
         byteArrayInputStream = new ByteArrayInputStream(inputData.getBytes());
         System.setIn(byteArrayInputStream);
 
-        String actualOption=bibliotecaAppView.readInput();
+        String actualOption = bibliotecaAppView.readInput();
 
         assertEquals(inputData, actualOption);
+    }
+
+    @Test
+    public void shouldNotAcceptInvalidString() {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream("abc".getBytes());
+        System.setIn(byteArrayInputStream);
+
+        BibliotecaAppView bibliotecaAppView = new BibliotecaAppView(new Scanner(System.in));
+
+        String actualInput = bibliotecaAppView.readInput();
+
+        assertEquals("4", actualInput);
     }
 
     @After
