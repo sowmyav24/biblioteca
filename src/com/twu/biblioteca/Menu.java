@@ -9,9 +9,9 @@ public class Menu {
         this.menuItems = menuItems;
     }
 
-    public void compute(int menuOption) {
+    public void compute(String menuOption) {
         if (menuItems.get(menuOption) == null)
-            menuItems.get(4).compute();
+            menuItems.get("Invalid").compute();
         else
             menuItems.get(menuOption).compute();
     }

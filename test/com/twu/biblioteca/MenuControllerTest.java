@@ -12,8 +12,8 @@ public class MenuControllerTest {
         Menu menuStub = mock(Menu.class);
         MenuController menuController = new MenuController(bibliotecaAppViewStub, menuStub);
 
-        menuController.selectOption("1");
+        menuController.selectOption("List Books");
 
-        verify(menuStub, times(1)).compute(anyInt());
+        verify(menuStub, times(1)).compute(anyString());
     }
 }

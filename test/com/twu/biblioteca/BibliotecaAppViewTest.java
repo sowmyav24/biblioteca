@@ -54,9 +54,8 @@ public class BibliotecaAppViewTest {
 
         String actualInput = bibliotecaAppView.readInput();
 
-        assertEquals("4", actualInput);
+        assertEquals("abc", actualInput);
     }
-    
     @After
     public void cleanUpStreams() {
         System.setOut(null);

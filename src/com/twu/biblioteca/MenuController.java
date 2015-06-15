@@ -10,6 +10,7 @@ public class MenuController {
     }
 
     public void selectOption(String menuOption) {
-        menu.compute(Integer.parseInt(menuOption));
+        menu.compute(menuOption);
     }
 }
+
