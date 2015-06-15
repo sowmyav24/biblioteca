@@ -35,5 +35,8 @@
             </batchtest>
         </junit>
     </target>
+    <target name="run" depends="compile" description="run the project">
+        <java classpath="out/src/classes/" classname="com.twu.biblioteca.BibliotecaInit"></java>
+    </target>
 
 </project>

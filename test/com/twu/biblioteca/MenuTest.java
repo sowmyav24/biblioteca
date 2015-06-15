@@ -28,7 +28,7 @@ public class MenuTest {
         menuActionPerformed.put(4, invalidMenuOption);
         Menu menu = new Menu(menuActionPerformed);
 
-        menu.compute(4);
+        menu.compute(5);
 
         verify(invalidMenuOption, times(1)).compute();
     }

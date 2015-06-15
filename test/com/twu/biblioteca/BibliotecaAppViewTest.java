@@ -46,7 +46,7 @@ public class BibliotecaAppViewTest {
     }
 
     @Test
-    public void shouldNotAcceptInvalidString() {
+    public void shouldNotAcceptInvalidOption() {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream("abc".getBytes());
         System.setIn(byteArrayInputStream);
 
@@ -56,7 +56,7 @@ public class BibliotecaAppViewTest {
 
         assertEquals("4", actualInput);
     }
-
+    
     @After
     public void cleanUpStreams() {
         System.setOut(null);
