@@ -63,7 +63,7 @@ public class BooksControllerTest {
                 .thenReturn("The Monk Who Sold His Ferrari");
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
+        LibrarySection librarySection = new LibrarySection(new ArrayList<Book>(),bookList);
 
         BooksController booksController = new BooksController(bibliotecaAppViewStub, librarySection);
 

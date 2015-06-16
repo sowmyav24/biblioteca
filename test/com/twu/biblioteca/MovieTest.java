@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class MovieTest {
@@ -15,6 +16,24 @@ public class MovieTest {
         String actualDetails = movie.toString();
 
         assertThat(actualDetails, is(equalTo("Titanic, 1993, Cameron, 9")));
+    }
+
+    @Test
+    public void shouldCheckIfMovieNamesMatch() {
+        Movie movie= new Movie("MovieName","Year","Director","Rating");
+
+        Boolean actualResult=movie.equals("MovieName");
+
+        assertEquals(true, actualResult);
+    }
+
+    @Test
+    public void shouldCheckIfMovieNamesDoesNotMatch() {
+        Movie movie= new Movie("MovieName","Year","Director","Rating");
+
+        Boolean actualResult=movie.equals("Movie");
+
+        assertEquals(false, actualResult);
     }
 
 }
