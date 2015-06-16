@@ -6,15 +6,15 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-public class LibraryTest {
+public class LibrarySectionTest {
 
     @Test
     public void shouldReturnListOfBookDetails() {
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        Library library = new Library(bookList,new ArrayList<Book>());
+        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
 
-        String actualList = library.toString();
+        String actualList = librarySection.toString();
 
         assertEquals("The Monk Who Sold His Ferrari, Robin Sharma, 2007\n", actualList);
     }
@@ -23,9 +23,9 @@ public class LibraryTest {
     public void shouldReturnIfBookIsAvailable() {
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        Library library = new Library(bookList,new ArrayList<Book>());
+        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
 
-        String actualResult = library.checkoutBook("The Monk Who Sold His Ferrari");
+        String actualResult = librarySection.checkoutBook("The Monk Who Sold His Ferrari");
 
         assertEquals("Thank you! Enjoy the book", actualResult);
     }
@@ -34,9 +34,9 @@ public class LibraryTest {
     public void shouldReturnFalseIfBookIsNotAvailable() {
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        Library library = new Library(bookList,new ArrayList<Book>());
+        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
 
-        String actualResult = library.checkoutBook("The  Who Sold His Ferrari");
+        String actualResult = librarySection.checkoutBook("The  Who Sold His Ferrari");
 
         assertEquals("That book is not available", actualResult);
     }
@@ -45,9 +45,9 @@ public class LibraryTest {
     public void shouldReturnIfBookCanBeReturned() {
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        Library library = new Library(bookList,new ArrayList<Book>());
+        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
 
-        String actualResult = library.returnBook("The Monk Who Sold His Ferrari");
+        String actualResult = librarySection.returnBook("The Monk Who Sold His Ferrari");
 
         assertEquals("Thank you for returning the book", actualResult);
     }
@@ -56,9 +56,9 @@ public class LibraryTest {
     public void shouldReturnFalseIfBookCannotBeReturned() {
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        Library library = new Library(bookList,new ArrayList<Book>());
+        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
 
-        String actualResult = library.returnBook("The Monk  Sold His Ferrari");
+        String actualResult = librarySection.returnBook("The Monk  Sold His Ferrari");
 
         assertEquals("That is not a valid book to return", actualResult);
     }

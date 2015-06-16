@@ -10,12 +10,12 @@ public class BooksControllerTest {
 
     @Test
     public void shouldReturnListOfBooks() {
-        Library libraryStub = mock(Library.class);
-        when(libraryStub.toString())
+        LibrarySection librarySectionStub = mock(LibrarySection.class);
+        when(librarySectionStub.toString())
                 .thenReturn("Book List");
 
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, libraryStub);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, librarySectionStub);
 
         booksController.returnListOfAllBooks();
 
@@ -29,9 +29,9 @@ public class BooksControllerTest {
                 .thenReturn("The Monk Who Sold His Ferrari");
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        Library library = new Library(bookList,new ArrayList<Book>());
+        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
 
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, library);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, librarySection);
 
         booksController.checkout();
 
@@ -46,9 +46,9 @@ public class BooksControllerTest {
                 .thenReturn("The Monk Who Sold His Ferrar");
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        Library library = new Library(bookList,new ArrayList<Book>());
+        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
 
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, library);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, librarySection);
 
         booksController.checkout();
 
@@ -63,9 +63,9 @@ public class BooksControllerTest {
                 .thenReturn("The Monk Who Sold His Ferrari");
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        Library library = new Library(bookList,new ArrayList<Book>());
+        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
 
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, library);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, librarySection);
 
         booksController.returnBook();
 
@@ -80,9 +80,9 @@ public class BooksControllerTest {
                 .thenReturn("The Monk Who Sold His Ferrar");
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        Library library = new Library(bookList,new ArrayList<Book>());
+        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
 
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, library);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, librarySection);
 
         booksController.returnBook();
 

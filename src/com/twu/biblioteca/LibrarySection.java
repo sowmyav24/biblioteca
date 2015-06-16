@@ -2,13 +2,13 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-//Contains Details of all Library in a list
+//Contains Details of all LibrarySection in a list
 
-public class Library {
+public class LibrarySection {
     private ArrayList<Book> availablebooks;
     private ArrayList<Book> issuedBooks;
 
-    Library(ArrayList<Book> availablebooks, ArrayList<Book> issuedBooks) {
+    LibrarySection(ArrayList<Book> availablebooks, ArrayList<Book> issuedBooks) {
         this.availablebooks = availablebooks;
         this.issuedBooks = issuedBooks;
     }
@@ -32,7 +32,7 @@ public class Library {
     }
 
     public String returnBook(String bookName) {
-        ArrayList<Book> searchResult = search(bookName, availablebooks);
+        ArrayList<Book> searchResult = search(bookName, issuedBooks);
         for (Book book : searchResult) {
             availablebooks.add(book);
             issuedBooks.remove(book);
