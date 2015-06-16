@@ -23,9 +23,11 @@ public class Main {
         MovieController movieController = new MovieController(bibliotecaAppView, movieSection);
 
         HashMap<String, MenuActionPerformed> menuItems = new HashMap<>();
-        menuItems.put("List LibrarySection", new ListBooks(booksController));
+        menuItems.put("List Books", new ListBooks(booksController));
+        menuItems.put("List Movies", new ListMovies(movieController));
         menuItems.put("Checkout Book", new CheckoutBook(bibliotecaAppView, booksController));
         menuItems.put("Return Book", new ReturnBook(bibliotecaAppView, booksController));
+        menuItems.put("Checkout Movie ", new CheckoutMovie(bibliotecaAppView, movieController));
         menuItems.put("Quit", new QuitMenu());
         menuItems.put("Invalid", new InvalidMenuOption(bibliotecaAppView));
 

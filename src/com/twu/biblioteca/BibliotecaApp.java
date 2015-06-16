@@ -15,8 +15,11 @@ public class BibliotecaApp {
     public void start() {
         String input;
         bibliotecaAppView.displayMessage(Message.WELCOME_MESSAGE);
-        bibliotecaAppView.displayMessage(Message.MENU_LIST);
-        input = bibliotecaAppView.readInput();
-        menuController.selectOption(input);
+        do {
+            bibliotecaAppView.displayMessage(Message.MENU_LIST);
+            input = bibliotecaAppView.readInput();
+            menuController.selectOption(input);
+        } while (bibliotecaAppView.readInput() != "Quit");
     }
 }
+
