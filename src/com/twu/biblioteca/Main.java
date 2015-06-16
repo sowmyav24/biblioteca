@@ -11,11 +11,16 @@ public class Main {
         ArrayList<Book> book = new ArrayList<>();
         book.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
 
-        LibrarySection librarySection = new LibrarySection(book,new ArrayList<Book>());
+        ArrayList<Movie> movie = new ArrayList<>();
+        movie.add(new Movie("Titanic", "1993", "Cameron", "9"));
+
+        LibrarySection bookSection = new LibrarySection(book, new ArrayList<Book>());
+        LibrarySection movieSection = new LibrarySection(movie, new ArrayList<Movie>());
 
         BibliotecaAppView bibliotecaAppView = new BibliotecaAppView(scanner);
 
-        BooksController booksController = new BooksController(bibliotecaAppView, librarySection);
+        BooksController booksController = new BooksController(bibliotecaAppView, bookSection);
+        MovieController movieController = new MovieController(bibliotecaAppView, movieSection);
 
         HashMap<String, MenuActionPerformed> menuItems = new HashMap<>();
         menuItems.put("List LibrarySection", new ListBooks(booksController));

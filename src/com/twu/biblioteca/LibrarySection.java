@@ -3,37 +3,37 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class LibrarySection<Section extends Item>  {
-    private ArrayList<Section> availablebooks;
-    private ArrayList<Section> issuedBooks;
+    private ArrayList<Section> availableItems;
+    private ArrayList<Section> issuedItems;
 
-    LibrarySection(ArrayList<Section> availablebooks, ArrayList<Section> issuedBooks) {
-        this.availablebooks = availablebooks;
-        this.issuedBooks = issuedBooks;
+    LibrarySection(ArrayList<Section> availableItems, ArrayList<Section> issuedItems) {
+        this.availableItems = availableItems;
+        this.issuedItems = issuedItems;
     }
 
     @Override
     public String toString() {
-        String bookList = new String();
-        for (Section book : availablebooks)
-            bookList += book.toString() + "\n";
-        return bookList;
+        String itemList = new String();
+        for (Section item : availableItems)
+            itemList += item.toString() + "\n";
+        return itemList;
     }
 
-    public String checkoutBook(String bookName) {
-        ArrayList<Section> searchResult = search(bookName, availablebooks);
-        for (Section book : searchResult) {
-            availablebooks.remove(book);
-            issuedBooks.add(book);
+    public String checkoutBook(String searchItemName) {
+        ArrayList<Section> searchResult = search(searchItemName, availableItems);
+        for (Section item : searchResult) {
+            availableItems.remove(item);
+            issuedItems.add(item);
             return Message.SUCCESSFULL_CHECKOUT;
         }
         return Message.UNSUCCESSFULL_CHECKOUT;
     }
 
-    public String returnBook(String bookName) {
-        ArrayList<Section> searchResult = search(bookName, issuedBooks);
-        for (Section book : searchResult) {
-            availablebooks.add(book);
-            issuedBooks.remove(book);
+    public String returnBook(String searchItemName) {
+        ArrayList<Section> searchResult = search(searchItemName, issuedItems);
+        for (Section item : searchResult) {
+            availableItems.add(item);
+            issuedItems.remove(item);
             return Message.SUCCESSFULL_RETURN;
         }
         return Message.UNSUCCESSFULL_RETURN;
@@ -41,9 +41,9 @@ public class LibrarySection<Section extends Item>  {
 
     private ArrayList<Section> search(String bookName, ArrayList<Section> listOfBooks) {
         ArrayList<Section> result = new ArrayList<>();
-        for (Section book : listOfBooks) {
-            if (book.match(bookName))
-                result.add(book);
+        for (Section item : listOfBooks) {
+            if (item.match(bookName))
+                result.add(item);
         }
         return result;
     }
