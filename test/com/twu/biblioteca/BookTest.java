@@ -22,7 +22,7 @@ public class BookTest {
     public void shouldCheckIfBookNamesMatch() {
         Book book= new Book("BookName","BookAuthor","Year");
 
-        Boolean actualResult=book.equals("BookName");
+        Boolean actualResult=book.match("BookName");
 
         assertEquals(true, actualResult);
     }

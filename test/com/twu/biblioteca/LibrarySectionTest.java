@@ -56,7 +56,7 @@ public class LibrarySectionTest {
     public void shouldReturnFalseIfBookCannotBeReturned() {
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
+        LibrarySection librarySection = new LibrarySection(new ArrayList<Book>(),bookList);
 
         String actualResult = librarySection.returnBook("The Monk  Sold His Ferrari");
 

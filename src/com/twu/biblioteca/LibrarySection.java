@@ -2,13 +2,11 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-//Contains Details of all LibrarySection in a list
+public class LibrarySection<Section extends Item>  {
+    private ArrayList<Section> availablebooks;
+    private ArrayList<Section> issuedBooks;
 
-public class LibrarySection {
-    private ArrayList<Book> availablebooks;
-    private ArrayList<Book> issuedBooks;
-
-    LibrarySection(ArrayList<Book> availablebooks, ArrayList<Book> issuedBooks) {
+    LibrarySection(ArrayList<Section> availablebooks, ArrayList<Section> issuedBooks) {
         this.availablebooks = availablebooks;
         this.issuedBooks = issuedBooks;
     }
@@ -16,14 +14,14 @@ public class LibrarySection {
     @Override
     public String toString() {
         String bookList = new String();
-        for (Book book : availablebooks)
-                bookList += book.toString() + "\n";
+        for (Section book : availablebooks)
+            bookList += book.toString() + "\n";
         return bookList;
     }
 
     public String checkoutBook(String bookName) {
-        ArrayList<Book> searchResult = search(bookName, availablebooks);
-        for (Book book : searchResult) {
+        ArrayList<Section> searchResult = search(bookName, availablebooks);
+        for (Section book : searchResult) {
             availablebooks.remove(book);
             issuedBooks.add(book);
             return Message.SUCCESSFULL_CHECKOUT;
@@ -32,8 +30,8 @@ public class LibrarySection {
     }
 
     public String returnBook(String bookName) {
-        ArrayList<Book> searchResult = search(bookName, issuedBooks);
-        for (Book book : searchResult) {
+        ArrayList<Section> searchResult = search(bookName, issuedBooks);
+        for (Section book : searchResult) {
             availablebooks.add(book);
             issuedBooks.remove(book);
             return Message.SUCCESSFULL_RETURN;
@@ -41,10 +39,10 @@ public class LibrarySection {
         return Message.UNSUCCESSFULL_RETURN;
     }
 
-    private ArrayList<Book> search(String bookName, ArrayList<Book> listOfBooks) {
-        ArrayList<Book> result = new ArrayList<Book>();
-        for (Book book : listOfBooks) {
-            if (book.equals(bookName))
+    private ArrayList<Section> search(String bookName, ArrayList<Section> listOfBooks) {
+        ArrayList<Section> result = new ArrayList<>();
+        for (Section book : listOfBooks) {
+            if (book.match(bookName))
                 result.add(book);
         }
         return result;

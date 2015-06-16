@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 //Contains details of a particular Book
 
-public class Book {
+public class Book implements Item{
     private String author;
     private String name;
     private String yearOfPublication;
@@ -19,7 +19,7 @@ public class Book {
         return name + ", " + author + ", " + yearOfPublication;
     }
 
-    public boolean equals(String o) {
+    public boolean match(String o) {
         return (this.name.equals(o));
     }
 }
