@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import static org.mockito.Mockito.*;
 
-public class LibraryControllerTest {
+public class BooksControllerTest {
 
     @Test
     public void shouldReturnListOfBooks() {
