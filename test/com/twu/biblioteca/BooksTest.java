@@ -25,7 +25,7 @@ public class BooksTest {
         bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), true);
         Books books = new Books(bookList);
 
-        Boolean actualList = books.checkoutBook(new Book("The Monk Who Sold His Ferrari", " ", " "));
+        Boolean actualList = books.checkoutBook("The Monk Who Sold His Ferrari");
 
         assertEquals(true, actualList);
     }
@@ -36,7 +36,7 @@ public class BooksTest {
         bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), true);
         Books books = new Books(bookList);
 
-        Boolean actualList = books.checkoutBook(new Book("The  Who Sold His Ferrari", " ", " "));
+        Boolean actualList = books.checkoutBook("The  Who Sold His Ferrari");
 
         assertEquals(false, actualList);
     }
@@ -47,7 +47,7 @@ public class BooksTest {
         bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), false);
         Books books = new Books(bookList);
 
-        Boolean actualList = books.returnBook(new Book("The Monk Who Sold His Ferrari", " ", " "));
+        Boolean actualList = books.returnBook("The Monk Who Sold His Ferrari");
 
         assertEquals(true, actualList);
     }
@@ -58,7 +58,7 @@ public class BooksTest {
         bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), false);
         Books books = new Books(bookList);
 
-        Boolean actualList = books.returnBook(new Book("The Monk  Sold His Ferrari", " ", " "));
+        Boolean actualList = books.returnBook("The Monk  Sold His Ferrari");
 
         assertEquals(false, actualList);
     }

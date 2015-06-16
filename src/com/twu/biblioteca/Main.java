@@ -14,9 +14,7 @@ public class Main {
 
         BibliotecaAppView bibliotecaAppView = new BibliotecaAppView(scanner);
 
-        BookItemTokenizer bookItemTokenizer = new BookItemTokenizer();
-
-        BooksController booksController = new BooksController(bibliotecaAppView, books, bookItemTokenizer);
+        BooksController booksController = new BooksController(bibliotecaAppView, books);
 
         HashMap<String, MenuActionPerformed> menuItems = new HashMap<>();
         menuItems.put("List Books", new ListBooks(booksController));

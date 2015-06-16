@@ -10,13 +10,12 @@ public class BooksControllerTest {
 
     @Test
     public void shouldReturnListOfBooks() {
-        BookItemTokenizer bookItemTokenizer = new BookItemTokenizer();
         Books booksStub = mock(Books.class);
         when(booksStub.toString())
                 .thenReturn("Book List");
 
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, booksStub, bookItemTokenizer);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, booksStub);
 
         booksController.returnListOfAllBooks();
 
@@ -25,14 +24,13 @@ public class BooksControllerTest {
 
     @Test
     public void shouldCheckoutBook() {
-        BookItemTokenizer bookItemTokenizer = new BookItemTokenizer();
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         when(bibliotecaAppViewStub.readInput())
                 .thenReturn("The Monk Who Sold His Ferrari");
         HashMap<Book, Boolean> bookList = new HashMap<>();
         bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), true);
         Books books = new Books(bookList);
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, books, bookItemTokenizer);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, books);
 
         booksController.checkout();
 
@@ -42,14 +40,13 @@ public class BooksControllerTest {
 
     @Test
     public void shouldReturnMessageForUnSuccesfullCheckoutBook() {
-        BookItemTokenizer bookItemTokenizer = new BookItemTokenizer();
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         when(bibliotecaAppViewStub.readInput())
                 .thenReturn("The Monk Who Sold His Ferrari");
         HashMap<Book, Boolean> bookList = new HashMap<>();
         bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), false);
         Books books = new Books(bookList);
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, books, bookItemTokenizer);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, books);
 
         booksController.checkout();
 
@@ -59,14 +56,13 @@ public class BooksControllerTest {
 
     @Test
     public void shouldReturnBook() {
-        BookItemTokenizer bookItemTokenizer = new BookItemTokenizer();
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         when(bibliotecaAppViewStub.readInput())
                 .thenReturn("The Monk Who Sold His Ferrari");
         HashMap<Book, Boolean> bookList = new HashMap<>();
         bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), false);
         Books books = new Books(bookList);
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, books, bookItemTokenizer);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, books);
 
         booksController.returnBook();
 
@@ -76,14 +72,13 @@ public class BooksControllerTest {
 
     @Test
     public void shouldReturnUnsuccessfullMessageForUnsuccessfullReturnBook() {
-        BookItemTokenizer bookItemTokenizer = new BookItemTokenizer();
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         when(bibliotecaAppViewStub.readInput())
                 .thenReturn("The Monk Who Sold His Ferrari");
         HashMap<Book, Boolean> bookList = new HashMap<>();
         bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"),true);
         Books books = new Books(bookList);
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, books, bookItemTokenizer);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, books);
 
         booksController.returnBook();
 

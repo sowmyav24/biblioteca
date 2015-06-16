@@ -13,8 +13,10 @@ public class BibliotecaApp {
     }
 
     public void start() {
+        String input;
         bibliotecaAppView.displayMessage(Message.WELCOME_MESSAGE);
         bibliotecaAppView.displayMessage(Message.MENU_LIST);
-        menuController.selectOption(bibliotecaAppView.readInput());
+        input = bibliotecaAppView.readInput();
+        menuController.selectOption(input);
     }
 }
