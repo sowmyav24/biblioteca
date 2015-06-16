@@ -19,7 +19,7 @@ public class LibrarySection<Section extends Item>  {
         return itemList;
     }
 
-    public String checkoutBook(String searchItemName) {
+    public String checkout(String searchItemName) {
         ArrayList<Section> searchResult = search(searchItemName, availableItems);
         for (Section item : searchResult) {
             availableItems.remove(item);
@@ -29,7 +29,7 @@ public class LibrarySection<Section extends Item>  {
         return Message.UNSUCCESSFULL_CHECKOUT;
     }
 
-    public String returnBook(String searchItemName) {
+    public String returnItem(String searchItemName) {
         ArrayList<Section> searchResult = search(searchItemName, issuedItems);
         for (Section item : searchResult) {
             availableItems.add(item);

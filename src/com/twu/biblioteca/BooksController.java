@@ -16,11 +16,11 @@ public class BooksController {
 
     public void checkout() {
         String bookInput = bibliotecaAppView.readInput();
-        bibliotecaAppView.displayMessage(librarySection.checkoutBook(bookInput));
+        bibliotecaAppView.displayMessage(librarySection.checkout(bookInput));
     }
 
     public void returnBook() {
         String bookInput = bibliotecaAppView.readInput();
-        bibliotecaAppView.displayMessage(librarySection.returnBook(bookInput));
+        bibliotecaAppView.displayMessage(librarySection.returnItem(bookInput));
     }
 }

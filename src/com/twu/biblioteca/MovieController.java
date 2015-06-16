@@ -16,8 +16,8 @@ public class MovieController {
     }
 
     public void checkout() {
-        String bookInput = bibliotecaAppView.readInput();
-        bibliotecaAppView.displayMessage(librarySection.checkoutBook(bookInput));
+        String movieInput = bibliotecaAppView.readInput();
+        bibliotecaAppView.displayMessage(librarySection.checkout(movieInput));
     }
 
 }
