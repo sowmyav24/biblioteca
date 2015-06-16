@@ -2,31 +2,25 @@ package com.twu.biblioteca;
 
 public class BooksController {
     private BibliotecaAppView bibliotecaAppView;
-    private Books books;
+    private Library library;
 
-    public BooksController(BibliotecaAppView bibliotecaAppView, Books books) {
+    public BooksController(BibliotecaAppView bibliotecaAppView, Library library) {
         this.bibliotecaAppView = bibliotecaAppView;
-        this.books = books;
+        this.library = library;
     }
 
     public void returnListOfAllBooks() {
-        String listOfBooks = books.toString();
+        String listOfBooks = library.toString();
         bibliotecaAppView.displayMessage(listOfBooks);
     }
 
     public void checkout() {
         String bookInput = bibliotecaAppView.readInput();
-        if (books.checkoutBook(bookInput))
-            bibliotecaAppView.displayMessage(Message.SUCCESSFULL_CHECKOUT);
-        else
-            bibliotecaAppView.displayMessage(Message.UNSUCCESSFULL_CHECKOUT);
+        bibliotecaAppView.displayMessage(library.checkoutBook(bookInput));
     }
 
     public void returnBook() {
         String bookInput = bibliotecaAppView.readInput();
-        if (books.returnBook(bookInput))
-            bibliotecaAppView.displayMessage(Message.SUCCESSFULL_RETURN);
-        else
-            bibliotecaAppView.displayMessage(Message.UNSUCCESSFULL_RETURN);
+        bibliotecaAppView.displayMessage(library.returnBook(bookInput));
     }
 }

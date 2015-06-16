@@ -12,7 +12,7 @@ public class MenuControllerTest {
         Menu menuStub = mock(Menu.class);
         MenuController menuController = new MenuController(bibliotecaAppViewStub, menuStub);
 
-        menuController.selectOption("List Books");
+        menuController.selectOption("List Library");
 
         verify(menuStub, times(1)).compute(anyString());
     }

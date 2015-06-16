@@ -9,7 +9,7 @@ import java.io.PrintStream;
 
 import static org.mockito.Mockito.*;
 
-public class ListBooksTest {
+public class ListLibraryTest {
     final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before

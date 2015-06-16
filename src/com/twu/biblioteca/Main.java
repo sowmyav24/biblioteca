@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -7,17 +8,17 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        HashMap<Book, Boolean> book = new HashMap<>();
-        book.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), true);
+        ArrayList<Book> book = new ArrayList<>();
+        book.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
 
-        Books books = new Books(book);
+        Library library = new Library(book,new ArrayList<Book>());
 
         BibliotecaAppView bibliotecaAppView = new BibliotecaAppView(scanner);
 
-        BooksController booksController = new BooksController(bibliotecaAppView, books);
+        BooksController booksController = new BooksController(bibliotecaAppView, library);
 
         HashMap<String, MenuActionPerformed> menuItems = new HashMap<>();
-        menuItems.put("List Books", new ListBooks(booksController));
+        menuItems.put("List Library", new ListBooks(booksController));
         menuItems.put("Checkout Book", new CheckoutBook(bibliotecaAppView, booksController));
         menuItems.put("Return Book", new ReturnBook(bibliotecaAppView, booksController));
         menuItems.put("Quit", new QuitMenu());

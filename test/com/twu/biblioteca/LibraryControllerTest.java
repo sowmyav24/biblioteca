@@ -2,24 +2,24 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 import static org.mockito.Mockito.*;
 
-public class BooksControllerTest {
+public class LibraryControllerTest {
 
     @Test
     public void shouldReturnListOfBooks() {
-        Books booksStub = mock(Books.class);
-        when(booksStub.toString())
+        Library libraryStub = mock(Library.class);
+        when(libraryStub.toString())
                 .thenReturn("Book List");
 
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, booksStub);
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, libraryStub);
 
         booksController.returnListOfAllBooks();
 
-        verify(bibliotecaAppViewStub, times(1)).displayMessage(anyString());
+        verify(bibliotecaAppViewStub, times(1)).displayMessage("Book List");
     }
 
     @Test
@@ -27,10 +27,11 @@ public class BooksControllerTest {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         when(bibliotecaAppViewStub.readInput())
                 .thenReturn("The Monk Who Sold His Ferrari");
-        HashMap<Book, Boolean> bookList = new HashMap<>();
-        bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), true);
-        Books books = new Books(bookList);
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, books);
+        ArrayList<Book> bookList = new ArrayList<>();
+        bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
+        Library library = new Library(bookList,new ArrayList<Book>());
+
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, library);
 
         booksController.checkout();
 
@@ -42,11 +43,12 @@ public class BooksControllerTest {
     public void shouldReturnMessageForUnSuccesfullCheckoutBook() {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         when(bibliotecaAppViewStub.readInput())
-                .thenReturn("The Monk Who Sold His Ferrari");
-        HashMap<Book, Boolean> bookList = new HashMap<>();
-        bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), false);
-        Books books = new Books(bookList);
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, books);
+                .thenReturn("The Monk Who Sold His Ferrar");
+        ArrayList<Book> bookList = new ArrayList<>();
+        bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
+        Library library = new Library(bookList,new ArrayList<Book>());
+
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, library);
 
         booksController.checkout();
 
@@ -59,10 +61,11 @@ public class BooksControllerTest {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         when(bibliotecaAppViewStub.readInput())
                 .thenReturn("The Monk Who Sold His Ferrari");
-        HashMap<Book, Boolean> bookList = new HashMap<>();
-        bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"), false);
-        Books books = new Books(bookList);
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, books);
+        ArrayList<Book> bookList = new ArrayList<>();
+        bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
+        Library library = new Library(bookList,new ArrayList<Book>());
+
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, library);
 
         booksController.returnBook();
 
@@ -74,11 +77,12 @@ public class BooksControllerTest {
     public void shouldReturnUnsuccessfullMessageForUnsuccessfullReturnBook() {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         when(bibliotecaAppViewStub.readInput())
-                .thenReturn("The Monk Who Sold His Ferrari");
-        HashMap<Book, Boolean> bookList = new HashMap<>();
-        bookList.put(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"),true);
-        Books books = new Books(bookList);
-        BooksController booksController = new BooksController(bibliotecaAppViewStub, books);
+                .thenReturn("The Monk Who Sold His Ferrar");
+        ArrayList<Book> bookList = new ArrayList<>();
+        bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
+        Library library = new Library(bookList,new ArrayList<Book>());
+
+        BooksController booksController = new BooksController(bibliotecaAppViewStub, library);
 
         booksController.returnBook();
 

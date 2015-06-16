@@ -13,10 +13,10 @@ public class MenuTest {
     public void shouldCallTheAppropriateAction() {
         HashMap<String, MenuActionPerformed> menuActionPerformed = new HashMap<>();
         ListBooks listBooks = mock(ListBooks.class);
-        menuActionPerformed.put("List Books", listBooks);
+        menuActionPerformed.put("List Library", listBooks);
         Menu menu = new Menu(menuActionPerformed);
 
-        menu.compute("List Books");
+        menu.compute("List Library");
 
         verify(listBooks, times(1)).compute();
     }
@@ -27,7 +27,7 @@ public class MenuTest {
         ListBooks listBooks = mock(ListBooks.class);
         InvalidMenuOption invalidMenuOption = mock(InvalidMenuOption.class);
 
-        menuActionPerformed.put("List Books", listBooks);
+        menuActionPerformed.put("List Library", listBooks);
         menuActionPerformed.put("Invalid", invalidMenuOption);
 
         Menu menu = new Menu(menuActionPerformed);
