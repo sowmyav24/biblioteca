@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Movie {
+public class Movie implements Item{
     private String title;
     private String year;
     private String director;
@@ -19,7 +19,7 @@ public class Movie {
         return title + ", " + year + ", " + director + ", " + rating;
     }
 
-    public boolean equals(String o) {
+    public boolean match(String o) {
         return (this.title.equals(o));
     }
 }

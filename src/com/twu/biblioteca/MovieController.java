@@ -14,5 +14,11 @@ public class MovieController {
         String listOfMovies = librarySection.toString();
         bibliotecaAppView.displayMessage(listOfMovies);
     }
+
+    public void checkout() {
+        String bookInput = bibliotecaAppView.readInput();
+        bibliotecaAppView.displayMessage(librarySection.checkoutBook(bookInput));
+    }
+
 }
 

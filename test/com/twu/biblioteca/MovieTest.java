@@ -22,7 +22,7 @@ public class MovieTest {
     public void shouldCheckIfMovieNamesMatch() {
         Movie movie= new Movie("MovieName","Year","Director","Rating");
 
-        Boolean actualResult=movie.equals("MovieName");
+        Boolean actualResult=movie.match("MovieName");
 
         assertEquals(true, actualResult);
     }

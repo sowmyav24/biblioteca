@@ -2,6 +2,8 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.mockito.Mockito.*;
 
 public class MovieControllerTest {
@@ -20,4 +22,37 @@ public class MovieControllerTest {
         verify(bibliotecaAppViewStub, times(1)).displayMessage("Movie List");
     }
 
+    @Test
+    public void shouldCheckoutMovie() {
+        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
+        when(bibliotecaAppViewStub.readInput())
+                .thenReturn("Titanic");
+        ArrayList<Movie> movieList = new ArrayList<>();
+        movieList.add(new Movie("Titanic","1993","Cameron","9"));
+        LibrarySection librarySection = new LibrarySection(movieList,new ArrayList<Movie>());
+
+        MovieController movieController = new MovieController(bibliotecaAppViewStub, librarySection);
+
+        movieController.checkout();
+
+        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_CHECKOUT);
+
+    }
+
+    @Test
+    public void shouldReturnMessageForUnSuccesfullCheckoutBook() {
+        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
+        when(bibliotecaAppViewStub.readInput())
+                .thenReturn("Titani");
+        ArrayList<Movie> movieList = new ArrayList<>();
+        movieList.add(new Movie("Titanic","1993","Cameron","9"));
+        LibrarySection librarySection = new LibrarySection(movieList,new ArrayList<Book>());
+
+        MovieController movieController = new MovieController(bibliotecaAppViewStub, librarySection);
+
+        movieController.checkout();
+
+        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.UNSUCCESSFULL_CHECKOUT);
+
+    }
 }
