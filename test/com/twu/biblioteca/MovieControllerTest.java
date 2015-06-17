@@ -45,7 +45,7 @@ public class MovieControllerTest {
         when(bibliotecaAppViewStub.readInput())
                 .thenReturn("Titani");
         ArrayList<Movie> movieList = new ArrayList<>();
-        movieList.add(new Movie("Titanic","1993","Cameron","9"));
+        movieList.add(new Movie("Titanic", "1993", "Cameron", "9"));
         LibrarySection librarySection = new LibrarySection(movieList,new ArrayList<Book>());
 
         MovieController movieController = new MovieController(bibliotecaAppViewStub, librarySection);
@@ -53,6 +53,39 @@ public class MovieControllerTest {
         movieController.checkout();
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.UNSUCCESSFULL_CHECKOUT);
+    }
+
+    @Test
+    public void shouldReturnMovie() {
+        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
+        when(bibliotecaAppViewStub.readInput())
+                .thenReturn("Titanic");
+        ArrayList<Movie> movieList = new ArrayList<>();
+        movieList.add(new Movie("Titanic","1993","Cameron","9"));
+        LibrarySection librarySection = new LibrarySection(new ArrayList<Book>(),movieList);
+
+        MovieController movieController = new MovieController(bibliotecaAppViewStub, librarySection);
+
+        movieController.returnMovie();
+
+        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_RETURN);
+
+    }
+
+    @Test
+    public void shouldReturnUnsuccessfullMessageForUnsuccessfullReturnBook() {
+        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
+        when(bibliotecaAppViewStub.readInput())
+                .thenReturn("Titaic");
+        ArrayList<Movie> movieList = new ArrayList<>();
+        movieList.add(new Movie("Titanic","1993","Cameron","9"));
+        LibrarySection librarySection = new LibrarySection(new ArrayList<Book>(),movieList);
+
+        MovieController movieController = new MovieController(bibliotecaAppViewStub, librarySection);
+
+        movieController.returnMovie();
+
+        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.UNSUCCESSFULL_RETURN);
 
     }
 }

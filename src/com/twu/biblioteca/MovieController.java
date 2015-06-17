@@ -20,5 +20,10 @@ public class MovieController {
         bibliotecaAppView.displayMessage(librarySection.checkout(movieInput));
     }
 
+    public void returnMovie() {
+        String movieInput = bibliotecaAppView.readInput();
+        bibliotecaAppView.displayMessage(librarySection.returnItem(movieInput));
+    }
+
 }
 

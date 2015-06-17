@@ -7,6 +7,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class ReturnBookTest {
+
     @Test
     public void shouldCallReturnBook() {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);

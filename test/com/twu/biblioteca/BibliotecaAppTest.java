@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.mockito.Mockito.*;
 
 public class BibliotecaAppTest {
-    
+
     @Test
     public void shouldExitWhenUserEnterQutit() {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
