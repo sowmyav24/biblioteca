@@ -2,6 +2,8 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -11,12 +13,16 @@ public class ReturnMovieTest {
     @Test
     public void shouldCallReturnMovie() {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
-        MovieController movieControllerStub = mock(MovieController.class);
+        ItemsController itemsController = mock(ItemsController.class);
+        ArrayList<Movie> issuedMovie = new ArrayList<Movie>();
+        issuedMovie.add(new Movie("Titanic","1993","Cameron","9"));
+        LibrarySection<Movie> librarySection= new LibrarySection<Movie>(new ArrayList<Movie>(),issuedMovie);
 
-        ReturnMovie returnMovie = new ReturnMovie(bibliotecaAppViewStub,movieControllerStub);
+
+        ReturnMovie returnMovie = new ReturnMovie(bibliotecaAppViewStub,itemsController,librarySection);
 
         returnMovie.compute();
 
-        verify(movieControllerStub, times(1)).returnMovie();
+        verify(itemsController, times(1)).returnItem(librarySection);
     }
 }

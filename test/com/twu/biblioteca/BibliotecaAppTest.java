@@ -12,8 +12,7 @@ public class BibliotecaAppTest {
         when(bibliotecaAppViewStub.readInput())
                 .thenReturn("List Books,Quit", "Quit");
         MenuController menuControllerStub = mock(MenuController.class);
-        BooksController booksController = mock(BooksController.class);
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppViewStub, menuControllerStub, booksController);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppViewStub, menuControllerStub);
 
         bibliotecaApp.start();
 

@@ -4,12 +4,10 @@ public class BibliotecaApp {
 
     private BibliotecaAppView bibliotecaAppView;
     private MenuController menuController;
-    private BooksController booksController;
 
-    public BibliotecaApp(BibliotecaAppView bibliotecaAppView, MenuController menuController, BooksController booksController) {
+    public BibliotecaApp(BibliotecaAppView bibliotecaAppView, MenuController menuController) {
         this.bibliotecaAppView = bibliotecaAppView;
         this.menuController = menuController;
-        this.booksController = booksController;
     }
 
     public void start() {

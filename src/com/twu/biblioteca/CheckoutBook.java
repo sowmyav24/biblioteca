@@ -3,15 +3,17 @@ package com.twu.biblioteca;
 public class CheckoutBook implements MenuActionPerformed {
 
     private BibliotecaAppView bibliotecaAppView;
-    private BooksController booksController;
+    private LibrarySection librarySection;
+    private ItemsController itemsController;
 
-    public CheckoutBook(BibliotecaAppView bibliotecaAppView, BooksController booksController) {
+    public CheckoutBook(BibliotecaAppView bibliotecaAppView, ItemsController itemsController, LibrarySection librarySection) {
         this.bibliotecaAppView = bibliotecaAppView;
-        this.booksController = booksController;
+        this.itemsController = itemsController;
+        this.librarySection = librarySection;
     }
 
     @Override
     public void compute() {
-        booksController.checkout();
+        itemsController.checkout(librarySection);
     }
 }

@@ -2,6 +2,8 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.mockito.Mockito.*;
 
 public class CheckoutBookTest {
@@ -9,12 +11,15 @@ public class CheckoutBookTest {
     @Test
     public void shouldReadBookName() {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
-        BooksController booksControllerStub = mock(BooksController.class);
+        ItemsController itemsController = mock(ItemsController.class);
+        ArrayList<Book> availableBook = new ArrayList<Book>();
+        availableBook.add(new Book("The Monk Who Sold His Ferrari","Robin Sharma","2007"));
+        LibrarySection<Book> librarySection= new LibrarySection<Book>(availableBook,new ArrayList<Book>());
 
-        CheckoutBook checkoutBook = new CheckoutBook(bibliotecaAppViewStub,booksControllerStub);
+        CheckoutBook checkoutBook = new CheckoutBook(bibliotecaAppViewStub,itemsController,librarySection);
 
         checkoutBook.compute();
 
-        verify(booksControllerStub, times(1)).checkout();
+        verify(itemsController, times(1)).checkout(librarySection);
     }
 }

@@ -6,10 +6,11 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import static org.mockito.Mockito.*;
 
-public class ListBooksTest {
+public class ListItemsTest {
     final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -19,12 +20,15 @@ public class ListBooksTest {
 
     @Test
     public void shouldPrintListOfAllBooks() {
-        BooksController booksControllerStub = mock(BooksController.class);
-        ListBooks listbooks = new ListBooks(booksControllerStub);
+        ItemsController itemsControllerStub = mock(ItemsController.class);
+        ArrayList<Book> availableBook = new ArrayList<Book>();
+        availableBook.add(new Book("The Monk Who Sold His Ferrari","Robin Sharma","2007"));
+        LibrarySection<Book> librarySection= new LibrarySection<Book>(availableBook,new ArrayList<Book>());
+        ListItems listbooks = new ListItems(itemsControllerStub,librarySection);
 
         listbooks.compute();
 
-        verify(booksControllerStub, times(1)).returnListOfAllBooks();
+        verify(itemsControllerStub, times(1)).returnListOfAllItems(librarySection);
     }
 
     @After

@@ -19,16 +19,15 @@ public class Main {
 
         BibliotecaAppView bibliotecaAppView = new BibliotecaAppView(scanner);
 
-        BooksController booksController = new BooksController(bibliotecaAppView, bookSection);
-        MovieController movieController = new MovieController(bibliotecaAppView, movieSection);
+        ItemsController itemsController = new ItemsController(bibliotecaAppView);
 
         HashMap<String, MenuActionPerformed> menuItems = new HashMap<>();
-        menuItems.put("List Books", new ListBooks(booksController));
-        menuItems.put("List Movies", new ListMovies(movieController));
-        menuItems.put("Checkout Book", new CheckoutBook(bibliotecaAppView, booksController));
-        menuItems.put("Return Book", new ReturnBook(bibliotecaAppView, booksController));
-        menuItems.put("Checkout Movie", new CheckoutMovie(bibliotecaAppView, movieController));
-        menuItems.put("Return Movie", new ReturnMovie(bibliotecaAppView, movieController));
+        menuItems.put("List Books", new ListItems(itemsController, bookSection));
+        menuItems.put("List Movies", new ListItems(itemsController, movieSection));
+        menuItems.put("Checkout Book", new CheckoutBook(bibliotecaAppView, itemsController, bookSection));
+        menuItems.put("Return Book", new ReturnBook(bibliotecaAppView, itemsController, bookSection));
+        menuItems.put("Checkout Movie", new CheckoutMovie(bibliotecaAppView, itemsController, movieSection));
+        menuItems.put("Return Movie", new ReturnMovie(bibliotecaAppView, itemsController, movieSection));
         menuItems.put("Quit", new QuitMenu());
         menuItems.put("Invalid", new InvalidMenuOption(bibliotecaAppView));
 
@@ -36,7 +35,7 @@ public class Main {
 
         MenuController menuController = new MenuController(bibliotecaAppView, menu);
 
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppView, menuController, booksController);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppView, menuController);
 
         bibliotecaApp.start();
     }
