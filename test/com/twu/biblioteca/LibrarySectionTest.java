@@ -25,7 +25,7 @@ public class LibrarySectionTest {
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
         LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
 
-        String actualResult = librarySection.checkout("The Monk Who Sold His Ferrari");
+        String actualResult = librarySection.checkout("The Monk Who Sold His Ferrari",Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT);
 
         assertEquals("Thank you! Enjoy the book", actualResult);
     }
@@ -36,7 +36,7 @@ public class LibrarySectionTest {
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
         LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
 
-        String actualResult = librarySection.checkout("The  Who Sold His Ferrari");
+        String actualResult = librarySection.checkout("The  Who Sold His Ferrari",Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT);
 
         assertEquals("That book is not available", actualResult);
     }
@@ -47,7 +47,7 @@ public class LibrarySectionTest {
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
         LibrarySection librarySection = new LibrarySection(new ArrayList<Book>(),bookList);
 
-        String actualResult = librarySection.returnItem("The Monk Who Sold His Ferrari");
+        String actualResult = librarySection.returnItem("The Monk Who Sold His Ferrari",Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN);
 
         assertEquals("Thank you for returning the book", actualResult);
     }
@@ -58,7 +58,7 @@ public class LibrarySectionTest {
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
         LibrarySection librarySection = new LibrarySection(new ArrayList<Book>(),bookList);
 
-        String actualResult = librarySection.returnItem("The Monk  Sold His Ferrari");
+        String actualResult = librarySection.returnItem("The Monk  Sold His Ferrari",Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN);
 
         assertEquals("That is not a valid book to return", actualResult);
     }

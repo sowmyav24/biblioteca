@@ -34,9 +34,9 @@ public class ItemsControllerTest {
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
-        itemsController.checkout(librarySection);
+        itemsController.checkout(librarySection,Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT);
 
-        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_CHECKOUT);
+        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_BOOK_CHECKOUT);
 
     }
 
@@ -51,9 +51,9 @@ public class ItemsControllerTest {
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
-        itemsController.checkout(librarySection);
+        itemsController.checkout(librarySection,Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT);
 
-        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.UNSUCCESSFULL_CHECKOUT);
+        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.UNSUCCESSFULL_BOOK_CHECKOUT);
     }
 
     @Test
@@ -67,9 +67,9 @@ public class ItemsControllerTest {
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
-        itemsController.returnItem(librarySection);
+        itemsController.returnItem(librarySection,Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN);
 
-        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_RETURN);
+        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_BOOK_RETURN);
 
     }
 
@@ -84,9 +84,9 @@ public class ItemsControllerTest {
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
-        itemsController.returnItem(librarySection);
+        itemsController.returnItem(librarySection,Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN);
 
-        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.UNSUCCESSFULL_RETURN);
+        verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.UNSUCCESSFULL_BOOK_RETURN);
 
     }
 }

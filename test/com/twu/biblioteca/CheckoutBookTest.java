@@ -20,6 +20,6 @@ public class CheckoutBookTest {
 
         checkoutBook.compute();
 
-        verify(itemsController, times(1)).checkout(librarySection);
+        verify(itemsController, times(1)).checkout(librarySection,Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT);
     }
 }

@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class LibrarySection<Section extends Item>  {
+public class LibrarySection<Section extends Item> {
     private ArrayList<Section> availableItems;
     private ArrayList<Section> issuedItems;
 
@@ -19,24 +19,24 @@ public class LibrarySection<Section extends Item>  {
         return itemList;
     }
 
-    public String checkout(String searchItemName) {
+    public String checkout(String searchItemName, String successfull, String unsuccessfull) {
         ArrayList<Section> searchResult = search(searchItemName, availableItems);
         for (Section item : searchResult) {
             availableItems.remove(item);
             issuedItems.add(item);
-            return Message.SUCCESSFULL_CHECKOUT;
+            return successfull;
         }
-        return Message.UNSUCCESSFULL_CHECKOUT;
+        return unsuccessfull;
     }
 
-    public String returnItem(String searchItemName) {
+    public String returnItem(String searchItemName, String successfull, String unsuccessfull) {
         ArrayList<Section> searchResult = search(searchItemName, issuedItems);
         for (Section item : searchResult) {
             availableItems.add(item);
             issuedItems.remove(item);
-            return Message.SUCCESSFULL_RETURN;
+            return successfull;
         }
-        return Message.UNSUCCESSFULL_RETURN;
+        return unsuccessfull;
     }
 
     private ArrayList<Section> search(String bookName, ArrayList<Section> listOfBooks) {

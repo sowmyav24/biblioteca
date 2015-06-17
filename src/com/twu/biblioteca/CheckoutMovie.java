@@ -14,6 +14,6 @@ public class CheckoutMovie implements MenuActionPerformed {
 
     @Override
     public void compute() {
-        itemsController.checkout(librarySection);
+        itemsController.checkout(librarySection,Message.SUCCESSFULL_MOVIE_CHECKOUT,Message.UNSUCCESSFULL_MOVIE_CHECKOUT);
     }
 }

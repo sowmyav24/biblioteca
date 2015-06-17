@@ -13,6 +13,6 @@ public class ReturnMovie implements MenuActionPerformed{
 
     @Override
     public void compute() {
-        itemsController.returnItem(librarySection);
+        itemsController.returnItem(librarySection, Message.SUCCESSFULL_MOVIE_RETURN,Message.UNSUCCESSFULL_MOVIE_RETURN);
     }
 }

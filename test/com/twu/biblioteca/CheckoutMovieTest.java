@@ -21,6 +21,6 @@ public class CheckoutMovieTest {
 
         checkoutMovie.compute();
 
-        verify(itemsController, times(1)).checkout(librarySection);
+        verify(itemsController, times(1)).checkout(librarySection,Message.SUCCESSFULL_MOVIE_CHECKOUT,Message.UNSUCCESSFULL_MOVIE_CHECKOUT);
     }
 }

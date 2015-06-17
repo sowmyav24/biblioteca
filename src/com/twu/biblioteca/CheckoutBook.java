@@ -14,6 +14,6 @@ public class CheckoutBook implements MenuActionPerformed {
 
     @Override
     public void compute() {
-        itemsController.checkout(librarySection);
+        itemsController.checkout(librarySection,Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT);
     }
 }

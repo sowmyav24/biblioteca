@@ -14,6 +14,6 @@ public class ReturnBook implements MenuActionPerformed {
 
     @Override
     public void compute() {
-        itemsController.returnItem(librarySection);
+        itemsController.returnItem(librarySection, Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN);
     }
 }

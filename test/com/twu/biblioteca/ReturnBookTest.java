@@ -21,6 +21,6 @@ public class ReturnBookTest {
 
         returnBook.compute();
 
-        verify(itemsController, times(1)).returnItem(librarySection);
+        verify(itemsController, times(1)).returnItem(librarySection, Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN);
     }
 }
