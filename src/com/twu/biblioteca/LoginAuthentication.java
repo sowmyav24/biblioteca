@@ -14,7 +14,8 @@ public class LoginAuthentication {
             if (user.match(userId, password))
                 if (user.isLibrarian())
                     return "Librarian";
-            return "User";
+            else
+                return "User";
         }
         return "Invalid";
     }
