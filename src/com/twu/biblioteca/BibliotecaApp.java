@@ -19,7 +19,7 @@ public class BibliotecaApp {
             bibliotecaAppView.displayMessage(Message.MENU_LIST);
             input = bibliotecaAppView.readInput();
             menuController.selectOption(input);
-        } while (bibliotecaAppView.readInput() != "Quit");
+        } while (input != "Quit");
     }
 }
 
