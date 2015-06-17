@@ -9,11 +9,13 @@ public class LoginAuthentication {
         this.users = users;
     }
 
-    public Boolean authenticate(String userId, String password) {
+    public String authenticate(String userId, String password) {
         for (User user : users) {
             if (user.match(userId, password))
-                return true;
+                if (user.isLibrarian())
+                    return "Librarian";
+            return "User";
         }
-        return false;
+        return "Invalid";
     }
 }

@@ -11,11 +11,11 @@ public class LoginAuthenticationTest {
     @Test
     public void shouldReturnAuthenticatedForCorrectUser() {
         ArrayList<User> user = new ArrayList<>();
-        user.add(new User("xyz", "xyz@gmail.com", "999999", "xyz", "xyz123", "role"));
+        user.add(new User("xyz", "xyz@gmail.com", "999999", "xyz", "xyz123", "User"));
         LoginAuthentication loginAuthentication = new LoginAuthentication(user);
 
-        Boolean actualResult = loginAuthentication.authenticate("xyz", "xyz123");
+        String actualResult = loginAuthentication.authenticate("xyz", "xyz123");
 
-        assertEquals(true, actualResult);
+        assertEquals("User", actualResult);
     }
 }
