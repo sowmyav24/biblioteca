@@ -18,4 +18,8 @@ public class User {
     public String returnDetails() {
         return name + "," + email + "," + phone;
     }
+
+    public boolean match(String userId, String password) {
+        return (userId.equals(this.logid) && password.equals(this.pwd));
+    }
 }
