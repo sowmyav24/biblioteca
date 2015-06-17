@@ -28,8 +28,4 @@ public class User {
     public boolean isLibrarian() {
         return (this.role.equals("Librarian"));
     }
-
-    public String returnName() {
-        return this.name;
-    }
 }

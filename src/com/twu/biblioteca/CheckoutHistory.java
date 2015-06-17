@@ -2,35 +2,38 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class CheckoutHistory {
-    private HashMap<String, List<Book>> checkoutList;
+    private HashMap<String, ArrayList<Book>> checkoutList;
 
-    public CheckoutHistory(HashMap<String, List<Book>> checkoutList) {
+    public CheckoutHistory(HashMap<String, ArrayList<Book>> checkoutList) {
         this.checkoutList = checkoutList;
     }
 
-    public void add(String userId,Book book) {
-        checkoutList.get(userId).add(book);
+    public void add(String userId, Book book) {
+
+        ArrayList<Book> checkout = checkoutList.get(userId);
+        checkout.add(book);
     }
+
     public String displayCheckedOutItems() {
-        String userName = new String();
-        String result = new String();
-        List<Book> books = new ArrayList<>();
+        String userName = "";
+        String result = "";
+        ArrayList<Book> books;
 
         for (String user : checkoutList.keySet()) {
             userName = user;
             books = checkoutList.get(user);
-            result = displayDetailsOfAUser(userName, books) + "\n";
+            result += displayDetailsOfAUser(userName, books) + "\n";
         }
         return result;
     }
 
-    private String displayDetailsOfAUser(String userName, List<Book> books) {
-        String resultData = userName;
+    private String displayDetailsOfAUser(String userName, ArrayList<Book> books) {
+        String resultData = "";
+        resultData=userName + "\n";
         for (Book book : books)
-            resultData = book.toString();
+            resultData += book.toString() + "\n";
         return resultData;
     }
 }
