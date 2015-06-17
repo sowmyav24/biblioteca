@@ -11,7 +11,7 @@ public class LoginAuthenticationTest {
     @Test
     public void shouldReturnAuthenticatedForCorrectUser() {
         ArrayList<User> user = new ArrayList<>();
-        user.add(new User("xyz", "xyz@gmail.com", "999999", "xyz", "xyz123"));
+        user.add(new User("xyz", "xyz@gmail.com", "999999", "xyz", "xyz123", "role"));
         LoginAuthentication loginAuthentication = new LoginAuthentication(user);
 
         Boolean actualResult = loginAuthentication.authenticate("xyz", "xyz123");

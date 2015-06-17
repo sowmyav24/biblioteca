@@ -6,13 +6,15 @@ public class User {
     private String phone;
     private String logid;
     private String pwd;
+    private String role;
 
-    public User(String name, String email, String phone, String logid, String pwd) {
+    public User(String name, String email, String phone, String logid, String pwd, String role) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.logid = logid;
         this.pwd = pwd;
+        this.role = role;
     }
 
     public String returnDetails() {
@@ -21,5 +23,9 @@ public class User {
 
     public boolean match(String userId, String password) {
         return (userId.equals(this.logid) && password.equals(this.pwd));
+    }
+
+    public boolean isLibrarian() {
+        return (this.role.equals("Librarian"));
     }
 }
