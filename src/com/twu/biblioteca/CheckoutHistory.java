@@ -23,6 +23,7 @@ public class CheckoutHistory<Section extends Item> {
         for (String user : checkoutList.keySet()) {
             userName = user;
             books = checkoutList.get(user);
+            if(books.size() != 0)
             result += displayDetailsOfAUser(userName, books) + "\n";
         }
         return result;
