@@ -15,6 +15,6 @@ public class QuitMenuTest {
 
         QuitMenu quitMenu=new QuitMenu();
 
-        quitMenu.compute();
+        quitMenu.compute("abc");
     }
 }

@@ -56,7 +56,7 @@ public class LibrarySectionTest {
 
         LibrarySection librarySection = new LibrarySection(new ArrayList<Book>(),bookList,checkoutHistory);
 
-        String actualResult = librarySection.returnItem("The Monk Who Sold His Ferrari",Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN);
+        String actualResult = librarySection.returnItem("The Monk Who Sold His Ferrari",Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN,"abc");
 
         assertEquals("Thank you for returning the book", actualResult);
     }
@@ -68,7 +68,7 @@ public class LibrarySectionTest {
         CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
         LibrarySection librarySection = new LibrarySection(new ArrayList<Book>(),bookList,checkoutHistory);
 
-        String actualResult = librarySection.returnItem("The Monk  Sold His Ferrari",Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN);
+        String actualResult = librarySection.returnItem("The Monk  Sold His Ferrari",Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN,"abc");
 
         assertEquals("That is not a valid book to return", actualResult);
     }

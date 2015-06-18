@@ -22,7 +22,6 @@ public class LibrarySection<Section extends Item> {
     }
 
     public String checkout(String searchItemName, String successfull, String unsuccessfull,String userId) {
-        //System.out.println(userId);
         ArrayList<Section> searchResult = search(searchItemName, availableItems);
         for (Section item : searchResult) {
             availableItems.remove(item);
@@ -33,11 +32,12 @@ public class LibrarySection<Section extends Item> {
         return unsuccessfull;
     }
 
-    public String returnItem(String searchItemName, String successfull, String unsuccessfull) {
+    public String returnItem(String searchItemName, String successfull, String unsuccessfull,String userId) {
         ArrayList<Section> searchResult = search(searchItemName, issuedItems);
         for (Section item : searchResult) {
             availableItems.add(item);
             issuedItems.remove(item);
+            checkoutHistory.remove(userId,item);
             return successfull;
         }
         return unsuccessfull;

@@ -22,8 +22,8 @@ public class ReturnMovieTest {
 
         ReturnMovie returnMovie = new ReturnMovie(bibliotecaAppViewStub, itemsController, librarySection);
 
-        returnMovie.compute();
+        returnMovie.compute("abc");
 
-        verify(itemsController, times(1)).returnItem(librarySection, Message.SUCCESSFULL_MOVIE_RETURN, Message.UNSUCCESSFULL_MOVIE_RETURN);
+        verify(itemsController, times(1)).returnItem(librarySection, Message.SUCCESSFULL_MOVIE_RETURN, Message.UNSUCCESSFULL_MOVIE_RETURN,"abc");
     }
 }

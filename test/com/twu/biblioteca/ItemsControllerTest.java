@@ -72,7 +72,7 @@ public class ItemsControllerTest {
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
-        itemsController.returnItem(librarySection,Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN);
+        itemsController.returnItem(librarySection,Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN,"abc");
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_BOOK_RETURN);
 
@@ -91,7 +91,7 @@ public class ItemsControllerTest {
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
-        itemsController.returnItem(librarySection,Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN);
+        itemsController.returnItem(librarySection,Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN,"abc");
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.UNSUCCESSFULL_BOOK_RETURN);
 

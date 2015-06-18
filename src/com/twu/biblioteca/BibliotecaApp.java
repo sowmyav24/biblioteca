@@ -7,6 +7,7 @@ public class BibliotecaApp {
     private User user;
     private LoginAuthentication loginAuthentication;
     private CheckoutHistory checkoutHistory;
+    private String userId;
 
     public BibliotecaApp(BibliotecaAppView bibliotecaAppView, MenuController menuController, User user, LoginAuthentication loginAuthentication, CheckoutHistory checkoutHistory) {
         this.bibliotecaAppView = bibliotecaAppView;
@@ -14,12 +15,13 @@ public class BibliotecaApp {
         this.user = user;
         this.loginAuthentication = loginAuthentication;
         this.checkoutHistory = checkoutHistory;
+        this.userId="";
     }
 
     public void start() {
         bibliotecaAppView.displayMessage(Message.WELCOME_MESSAGE);
         bibliotecaAppView.displayMessage(Message.LOGIN_PASSWORD);
-        String result = loginAuthentication.authenticate(bibliotecaAppView.readInput(), bibliotecaAppView.readInput());
+        String result = loginAuthentication.authenticate(this.userId=bibliotecaAppView.readInput(), bibliotecaAppView.readInput());
         if (result == "User") {
             DisplayMenu();
 
@@ -39,7 +41,7 @@ public class BibliotecaApp {
             if(input.equals("Logout"))
                 start();
             else
-               menuController.selectOption(input);
+               menuController.selectOption(input,userId);
         } while (input != "Quit");
     }
 }

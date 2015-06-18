@@ -9,11 +9,11 @@ public class Menu {
         this.menuItems = menuItems;
     }
 
-    public void compute(String menuOption) {
+    public void compute(String menuOption,String userId) {
         if (menuItems.get(menuOption) == null)
-            menuItems.get("Invalid").compute();
+            menuItems.get("Invalid").compute("Invalid");
         else
-            menuItems.get(menuOption).compute();
+            menuItems.get(menuOption).compute(userId);
     }
 }
 

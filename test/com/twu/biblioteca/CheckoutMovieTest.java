@@ -19,9 +19,9 @@ public class CheckoutMovieTest {
         CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
         LibrarySection<Movie> librarySection= new LibrarySection<Movie>(availableMovie,new ArrayList<Movie>(),checkoutHistory);
 
-        CheckoutMovie checkoutMovie = new CheckoutMovie(bibliotecaAppViewStub,itemsController,librarySection,UserId);
+        CheckoutMovie checkoutMovie = new CheckoutMovie(bibliotecaAppViewStub,itemsController,librarySection);
 
-        checkoutMovie.compute();
+        checkoutMovie.compute(UserId);
 
         verify(itemsController, times(1)).checkout(librarySection,Message.SUCCESSFULL_MOVIE_CHECKOUT,Message.UNSUCCESSFULL_MOVIE_CHECKOUT,UserId);
     }

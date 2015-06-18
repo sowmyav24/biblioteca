@@ -25,7 +25,7 @@ public class InvalidMenuOptionTest {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption(bibliotecaAppViewStub);
 
-        invalidMenuOption.compute();
+        invalidMenuOption.compute("abc");
 
         Mockito.verify(bibliotecaAppViewStub, times(1)).displayMessage(anyString());
     }

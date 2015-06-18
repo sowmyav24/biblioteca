@@ -5,17 +5,15 @@ public class CheckoutBook implements MenuActionPerformed {
     private BibliotecaAppView bibliotecaAppView;
     private LibrarySection librarySection;
     private ItemsController itemsController;
-    private String userId;
 
-    public CheckoutBook(BibliotecaAppView bibliotecaAppView, ItemsController itemsController, LibrarySection librarySection,String userId) {
+    public CheckoutBook(BibliotecaAppView bibliotecaAppView, ItemsController itemsController, LibrarySection librarySection) {
         this.bibliotecaAppView = bibliotecaAppView;
         this.itemsController = itemsController;
         this.librarySection = librarySection;
-        this.userId = userId;
     }
 
     @Override
-    public void compute() {
+    public void compute(String userId) {
         itemsController.checkout(librarySection,Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT,userId);
     }
 }

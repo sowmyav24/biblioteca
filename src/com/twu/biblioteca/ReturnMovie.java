@@ -12,7 +12,7 @@ public class ReturnMovie implements MenuActionPerformed{
     }
 
     @Override
-    public void compute() {
-        itemsController.returnItem(librarySection, Message.SUCCESSFULL_MOVIE_RETURN,Message.UNSUCCESSFULL_MOVIE_RETURN);
+    public void compute(String userId) {
+        itemsController.returnItem(librarySection, Message.SUCCESSFULL_MOVIE_RETURN,Message.UNSUCCESSFULL_MOVIE_RETURN,userId);
     }
 }

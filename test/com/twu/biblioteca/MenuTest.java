@@ -16,9 +16,9 @@ public class MenuTest {
         menuActionPerformed.put("List LibrarySection", listItems);
         Menu menu = new Menu(menuActionPerformed);
 
-        menu.compute("List LibrarySection");
+        menu.compute("List LibrarySection","abc");
 
-        verify(listItems, times(1)).compute();
+        verify(listItems, times(1)).compute("abc");
     }
 
     @Test
@@ -32,8 +32,8 @@ public class MenuTest {
 
         Menu menu = new Menu(menuActionPerformed);
 
-        menu.compute("abc");
+        menu.compute("Invalid","abc");
 
-        verify(invalidMenuOption, times(1)).compute();
+        verify(invalidMenuOption, times(1)).compute("abc");
     }
 }

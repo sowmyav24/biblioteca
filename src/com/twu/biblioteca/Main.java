@@ -21,9 +21,6 @@ public class Main {
 
         CheckoutHistory checkoutHistory = new CheckoutHistory(checkoutList);
 
-      //  checkoutHistory.add("User 1", new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-      //  checkoutList.put("User 1", new ArrayList<Book>());
-
         User user = new User("User1", "xyz@gmail.com", "9999", "xyz", "xyz123", "User");
         User librarian = new User("User2", "abc@gmail.com", "8888", "abc", "abc123", "Librarian");
 
@@ -40,9 +37,9 @@ public class Main {
         HashMap<String, MenuActionPerformed> menuItems = new HashMap<>();
         menuItems.put("List Books", new ListItems(itemsController, bookSection));
         menuItems.put("List Movies", new ListItems(itemsController, movieSection));
-        menuItems.put("Checkout Book", new CheckoutBook(bibliotecaAppView, itemsController, bookSection,"xyz"));
+        menuItems.put("Checkout Book", new CheckoutBook(bibliotecaAppView, itemsController, bookSection));
         menuItems.put("Return Book", new ReturnBook(bibliotecaAppView, itemsController, bookSection));
-        menuItems.put("Checkout Movie", new CheckoutMovie(bibliotecaAppView, itemsController, movieSection,"xyz"));
+        menuItems.put("Checkout Movie", new CheckoutMovie(bibliotecaAppView, itemsController, movieSection));
         menuItems.put("Return Movie", new ReturnMovie(bibliotecaAppView, itemsController, movieSection));
         menuItems.put("Quit", new QuitMenu());
         menuItems.put("Invalid", new InvalidMenuOption(bibliotecaAppView));

@@ -12,13 +12,13 @@ public class ItemsController {
         bibliotecaAppView.displayMessage(listOfBooks);
     }
 
-    public void checkout(LibrarySection librarySection, String successfullMessage, String unsuccessfullMessage,String userID) {
+    public void checkout(LibrarySection librarySection, String successfullMessage, String unsuccessfullMessage,String userId) {
         String itemInput = bibliotecaAppView.readInput();
-        bibliotecaAppView.displayMessage(librarySection.checkout(itemInput,successfullMessage,unsuccessfullMessage,userID));
+        bibliotecaAppView.displayMessage(librarySection.checkout(itemInput,successfullMessage,unsuccessfullMessage,userId));
     }
 
-    public void returnItem(LibrarySection librarySection, String successfullMessage, String unsuccessfullMessage) {
+    public void returnItem(LibrarySection librarySection, String successfullMessage, String unsuccessfullMessage,String userId) {
         String itemInput = bibliotecaAppView.readInput();
-        bibliotecaAppView.displayMessage(librarySection.returnItem(itemInput,successfullMessage,unsuccessfullMessage));
+        bibliotecaAppView.displayMessage(librarySection.returnItem(itemInput,successfullMessage,unsuccessfullMessage,userId));
     }
 }

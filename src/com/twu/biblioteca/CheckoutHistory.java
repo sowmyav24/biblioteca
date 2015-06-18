@@ -35,4 +35,9 @@ public class CheckoutHistory<Section extends Item> {
             resultData += book.toString() + "\n";
         return resultData;
     }
+
+    public void remove(String userId, Section item) {
+        ArrayList<Section> checkout = checkoutList.get(userId);
+        checkout.remove(item);
+    }
 }

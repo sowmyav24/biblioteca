@@ -27,7 +27,7 @@ public class ListItemsTest {
         LibrarySection<Book> librarySection= new LibrarySection<Book>(availableBook,new ArrayList<Book>(),checkoutHistory);
         ListItems listbooks = new ListItems(itemsControllerStub,librarySection);
 
-        listbooks.compute();
+        listbooks.compute("abc");
 
         verify(itemsControllerStub, times(1)).returnListOfAllItems(librarySection);
     }

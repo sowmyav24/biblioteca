@@ -10,7 +10,7 @@ public class ListItems implements MenuActionPerformed {
         this.librarySection = librarySection;
     }
 
-    public void compute() {
+    public void compute(String userId) {
         itemsController.returnListOfAllItems(librarySection);
     }
 }

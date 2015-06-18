@@ -20,8 +20,8 @@ public class ReturnBookTest {
         ItemsController itemsController = mock(ItemsController.class);
         ReturnBook returnBook = new ReturnBook(bibliotecaAppViewStub,itemsController,librarySection);
 
-        returnBook.compute();
+        returnBook.compute("abc");
 
-        verify(itemsController, times(1)).returnItem(librarySection, Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN);
+        verify(itemsController, times(1)).returnItem(librarySection, Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN,"abc");
     }
 }

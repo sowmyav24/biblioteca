@@ -1,5 +1,5 @@
 package com.twu.biblioteca;
 
 public interface MenuActionPerformed {
-    void compute();
+    void compute(String userId);
 }
