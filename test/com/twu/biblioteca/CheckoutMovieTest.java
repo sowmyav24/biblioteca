@@ -11,16 +11,18 @@ import static org.mockito.Mockito.verify;
 public class CheckoutMovieTest {
     @Test
     public void shouldReadBookName() {
+        String UserId = "xyz";
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         ItemsController itemsController = mock(ItemsController.class);
         ArrayList<Movie> availableMovie = new ArrayList<Movie>();
         availableMovie.add(new Movie("Titanic","1993","Cameron","9"));
-        LibrarySection<Movie> librarySection= new LibrarySection<Movie>(availableMovie,new ArrayList<Movie>());
+        CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
+        LibrarySection<Movie> librarySection= new LibrarySection<Movie>(availableMovie,new ArrayList<Movie>(),checkoutHistory);
 
-        CheckoutMovie checkoutMovie = new CheckoutMovie(bibliotecaAppViewStub,itemsController,librarySection);
+        CheckoutMovie checkoutMovie = new CheckoutMovie(bibliotecaAppViewStub,itemsController,librarySection,UserId);
 
         checkoutMovie.compute();
 
-        verify(itemsController, times(1)).checkout(librarySection,Message.SUCCESSFULL_MOVIE_CHECKOUT,Message.UNSUCCESSFULL_MOVIE_CHECKOUT);
+        verify(itemsController, times(1)).checkout(librarySection,Message.SUCCESSFULL_MOVIE_CHECKOUT,Message.UNSUCCESSFULL_MOVIE_CHECKOUT,UserId);
     }
 }

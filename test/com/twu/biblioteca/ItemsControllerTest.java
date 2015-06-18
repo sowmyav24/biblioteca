@@ -25,16 +25,18 @@ public class ItemsControllerTest {
 
     @Test
     public void shouldCheckoutBook() {
+        String UserId = "xyz";
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         when(bibliotecaAppViewStub.readInput())
                 .thenReturn("The Monk Who Sold His Ferrari");
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
+        CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
+        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>(),checkoutHistory);
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
-        itemsController.checkout(librarySection,Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT);
+        itemsController.checkout(librarySection,Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT,UserId);
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_BOOK_CHECKOUT);
 
@@ -42,16 +44,18 @@ public class ItemsControllerTest {
 
     @Test
     public void shouldReturnMessageForUnSuccesfullCheckoutBook() {
+        String userId = "xyz";
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         when(bibliotecaAppViewStub.readInput())
                 .thenReturn("The Monk Who Sold His Ferrar");
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
+        CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
+        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>(),checkoutHistory);
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
-        itemsController.checkout(librarySection,Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT);
+        itemsController.checkout(librarySection,Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT,userId);
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.UNSUCCESSFULL_BOOK_CHECKOUT);
     }
@@ -63,7 +67,8 @@ public class ItemsControllerTest {
                 .thenReturn("The Monk Who Sold His Ferrari");
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        LibrarySection librarySection = new LibrarySection(new ArrayList<Book>(),bookList);
+        CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
+        LibrarySection librarySection = new LibrarySection(new ArrayList<Book>(),bookList,checkoutHistory);
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
@@ -80,7 +85,9 @@ public class ItemsControllerTest {
                 .thenReturn("The Monk Who Sold His Ferrar");
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
-        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>());
+        CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
+
+        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>(),checkoutHistory);
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 

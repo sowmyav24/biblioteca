@@ -8,7 +8,7 @@ public class BibliotecaApp {
     private LoginAuthentication loginAuthentication;
     private CheckoutHistory checkoutHistory;
 
-    public BibliotecaApp(BibliotecaAppView bibliotecaAppView, MenuController menuController, User user, LoginAuthentication loginAuthentication,CheckoutHistory checkoutHistory) {
+    public BibliotecaApp(BibliotecaAppView bibliotecaAppView, MenuController menuController, User user, LoginAuthentication loginAuthentication, CheckoutHistory checkoutHistory) {
         this.bibliotecaAppView = bibliotecaAppView;
         this.menuController = menuController;
         this.user = user;
@@ -17,26 +17,30 @@ public class BibliotecaApp {
     }
 
     public void start() {
-        String input;
         bibliotecaAppView.displayMessage(Message.WELCOME_MESSAGE);
         bibliotecaAppView.displayMessage(Message.LOGIN_PASSWORD);
         String result = loginAuthentication.authenticate(bibliotecaAppView.readInput(), bibliotecaAppView.readInput());
         if (result == "User") {
-            do {
-                bibliotecaAppView.displayMessage(user.returnDetails());
-                bibliotecaAppView.displayMessage(Message.MENU_LIST);
-                input = bibliotecaAppView.readInput();
-                menuController.selectOption(input);
-            } while (input != "Quit");
+            DisplayMenu();
+
         }
-        else if(result == "Librarian")
-            do {
-                bibliotecaAppView.displayMessage(user.returnDetails());
-                bibliotecaAppView.displayMessage(checkoutHistory.displayCheckedOutItems());
-                bibliotecaAppView.displayMessage(Message.MENU_LIST);
-                input = bibliotecaAppView.readInput();
-                menuController.selectOption(input);
-            } while (input != "Quit");
+        else if (result == "Librarian") {
+            bibliotecaAppView.displayMessage(checkoutHistory.displayCheckedOutItems());
+            DisplayMenu();
+        }
+    }
+
+    private void DisplayMenu() {
+        String input;
+        do {
+            bibliotecaAppView.displayMessage(user.returnDetails());
+            bibliotecaAppView.displayMessage(Message.MENU_LIST);
+            input = bibliotecaAppView.readInput();
+            if(input.equals("Logout"))
+                start();
+            else
+               menuController.selectOption(input);
+        } while (input != "Quit");
     }
 }
 

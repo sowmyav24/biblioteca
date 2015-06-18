@@ -15,14 +15,15 @@ public class ReturnMovieTest {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         ItemsController itemsController = mock(ItemsController.class);
         ArrayList<Movie> issuedMovie = new ArrayList<Movie>();
-        issuedMovie.add(new Movie("Titanic","1993","Cameron","9"));
-        LibrarySection<Movie> librarySection= new LibrarySection<Movie>(new ArrayList<Movie>(),issuedMovie);
+        issuedMovie.add(new Movie("Titanic", "1993", "Cameron", "9"));
+        CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
+        LibrarySection<Movie> librarySection = new LibrarySection<Movie>(new ArrayList<Movie>(), issuedMovie,checkoutHistory);
 
 
-        ReturnMovie returnMovie = new ReturnMovie(bibliotecaAppViewStub,itemsController,librarySection);
+        ReturnMovie returnMovie = new ReturnMovie(bibliotecaAppViewStub, itemsController, librarySection);
 
         returnMovie.compute();
 
-        verify(itemsController, times(1)).returnItem(librarySection, Message.SUCCESSFULL_MOVIE_RETURN,Message.UNSUCCESSFULL_MOVIE_RETURN);
+        verify(itemsController, times(1)).returnItem(librarySection, Message.SUCCESSFULL_MOVIE_RETURN, Message.UNSUCCESSFULL_MOVIE_RETURN);
     }
 }

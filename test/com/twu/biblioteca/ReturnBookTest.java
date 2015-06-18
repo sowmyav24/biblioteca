@@ -15,7 +15,8 @@ public class ReturnBookTest {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         ArrayList<Book> issuedBook = new ArrayList<Book>();
         issuedBook.add(new Book("The Monk Who Sold His Ferrari","Robin Sharma","2007"));
-        LibrarySection<Book> librarySection= new LibrarySection<Book>(new ArrayList<Book>(),issuedBook);
+        CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
+        LibrarySection<Book> librarySection= new LibrarySection<Book>(new ArrayList<Book>(),issuedBook,checkoutHistory);
         ItemsController itemsController = mock(ItemsController.class);
         ReturnBook returnBook = new ReturnBook(bibliotecaAppViewStub,itemsController,librarySection);
 

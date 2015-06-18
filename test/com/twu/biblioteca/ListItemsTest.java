@@ -23,7 +23,8 @@ public class ListItemsTest {
         ItemsController itemsControllerStub = mock(ItemsController.class);
         ArrayList<Book> availableBook = new ArrayList<Book>();
         availableBook.add(new Book("The Monk Who Sold His Ferrari","Robin Sharma","2007"));
-        LibrarySection<Book> librarySection= new LibrarySection<Book>(availableBook,new ArrayList<Book>());
+        CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
+        LibrarySection<Book> librarySection= new LibrarySection<Book>(availableBook,new ArrayList<Book>(),checkoutHistory);
         ListItems listbooks = new ListItems(itemsControllerStub,librarySection);
 
         listbooks.compute();

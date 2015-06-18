@@ -5,10 +5,12 @@ import java.util.ArrayList;
 public class LibrarySection<Section extends Item> {
     private ArrayList<Section> availableItems;
     private ArrayList<Section> issuedItems;
+    private CheckoutHistory<Section> checkoutHistory;
 
-    LibrarySection(ArrayList<Section> availableItems, ArrayList<Section> issuedItems) {
+    LibrarySection(ArrayList<Section> availableItems, ArrayList<Section> issuedItems,CheckoutHistory<Section> checkoutHistory) {
         this.availableItems = availableItems;
         this.issuedItems = issuedItems;
+        this.checkoutHistory = checkoutHistory;
     }
 
     @Override
@@ -19,11 +21,13 @@ public class LibrarySection<Section extends Item> {
         return itemList;
     }
 
-    public String checkout(String searchItemName, String successfull, String unsuccessfull) {
+    public String checkout(String searchItemName, String successfull, String unsuccessfull,String userId) {
+        //System.out.println(userId);
         ArrayList<Section> searchResult = search(searchItemName, availableItems);
         for (Section item : searchResult) {
             availableItems.remove(item);
             issuedItems.add(item);
+            checkoutHistory.add(userId,item);
             return successfull;
         }
         return unsuccessfull;
