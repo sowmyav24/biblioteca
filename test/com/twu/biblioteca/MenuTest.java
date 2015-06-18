@@ -32,7 +32,7 @@ public class MenuTest {
 
         Menu menu = new Menu(menuActionPerformed);
 
-        menu.compute("Invalid","abc");
+        menu.compute("valid","abc");
 
         verify(invalidMenuOption, times(1)).compute("abc");
     }

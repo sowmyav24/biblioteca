@@ -11,7 +11,7 @@ public class Menu {
 
     public void compute(String menuOption,String userId) {
         if (menuItems.get(menuOption) == null)
-            menuItems.get("Invalid").compute("Invalid");
+            menuItems.get("Invalid").compute(userId);
         else
             menuItems.get(menuOption).compute(userId);
     }
