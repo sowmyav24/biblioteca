@@ -35,7 +35,7 @@ public class BibliotecaApp {
     private void DisplayMenu() {
         String input;
         do {
-            bibliotecaAppView.displayMessage(user.returnDetails());
+            bibliotecaAppView.displayMessage(this.user.returnDetails());
             bibliotecaAppView.displayMessage(Message.MENU_LIST);
             input = bibliotecaAppView.readInput();
             if(input.equals("Logout"))
