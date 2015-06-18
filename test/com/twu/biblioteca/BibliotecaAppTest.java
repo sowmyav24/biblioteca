@@ -14,8 +14,8 @@ public class BibliotecaAppTest {
         MenuController menuControllerStub = mock(MenuController.class);
         User user = mock(User.class);
         LoginAuthentication loginAuthentication = mock(LoginAuthentication.class);
-        CheckoutHistory checkoutHistory=mock(CheckoutHistory.class);
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppViewStub, menuControllerStub, user, loginAuthentication,checkoutHistory);
+        CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppViewStub, menuControllerStub, user, loginAuthentication, checkoutHistory);
 
         bibliotecaApp.start();
 

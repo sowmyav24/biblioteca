@@ -38,4 +38,17 @@ public class CheckoutHistoryTest {
         assertEquals("User 1\nThe Monk Who Sold His Ferrari | Robin Sharma | 2007\nJava | Jones | 2007\n\n", actualData);
     }
 
+    @Test
+    public void shouldRemoveReturnedBooks() {
+        HashMap<String, ArrayList<Book>> checkoutList = new HashMap<>();
+        checkoutList.put("User 1", new ArrayList<Book>());
+
+        CheckoutHistory checkoutHistory = new CheckoutHistory(checkoutList);
+
+        checkoutHistory.remove("User 1", new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
+
+        String actualData = checkoutHistory.displayCheckedOutItems();
+
+        assertEquals("", actualData);
+    }
 }

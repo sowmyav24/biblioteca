@@ -16,7 +16,7 @@ public class ItemsControllerTest {
                 .thenReturn("List");
 
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
-        ItemsController itemsController  = new ItemsController(bibliotecaAppViewStub);
+        ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
         itemsController.returnListOfAllItems(librarySectionStub);
 
@@ -32,11 +32,11 @@ public class ItemsControllerTest {
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
         CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
-        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>(),checkoutHistory);
+        LibrarySection librarySection = new LibrarySection(bookList, new ArrayList<Book>(), checkoutHistory);
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
-        itemsController.checkout(librarySection,Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT,UserId);
+        itemsController.checkout(librarySection, Message.SUCCESSFULL_BOOK_CHECKOUT, Message.UNSUCCESSFULL_BOOK_CHECKOUT, UserId);
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_BOOK_CHECKOUT);
 
@@ -51,11 +51,11 @@ public class ItemsControllerTest {
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
         CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
-        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>(),checkoutHistory);
+        LibrarySection librarySection = new LibrarySection(bookList, new ArrayList<Book>(), checkoutHistory);
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
-        itemsController.checkout(librarySection,Message.SUCCESSFULL_BOOK_CHECKOUT,Message.UNSUCCESSFULL_BOOK_CHECKOUT,userId);
+        itemsController.checkout(librarySection, Message.SUCCESSFULL_BOOK_CHECKOUT, Message.UNSUCCESSFULL_BOOK_CHECKOUT, userId);
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.UNSUCCESSFULL_BOOK_CHECKOUT);
     }
@@ -68,11 +68,11 @@ public class ItemsControllerTest {
         ArrayList<Book> bookList = new ArrayList<>();
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
         CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
-        LibrarySection librarySection = new LibrarySection(new ArrayList<Book>(),bookList,checkoutHistory);
+        LibrarySection librarySection = new LibrarySection(new ArrayList<Book>(), bookList, checkoutHistory);
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
-        itemsController.returnItem(librarySection,Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN,"abc");
+        itemsController.returnItem(librarySection, Message.SUCCESSFULL_BOOK_RETURN, Message.UNSUCCESSFULL_BOOK_RETURN, "abc");
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.SUCCESSFULL_BOOK_RETURN);
 
@@ -87,11 +87,11 @@ public class ItemsControllerTest {
         bookList.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
         CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
 
-        LibrarySection librarySection = new LibrarySection(bookList,new ArrayList<Book>(),checkoutHistory);
+        LibrarySection librarySection = new LibrarySection(bookList, new ArrayList<Book>(), checkoutHistory);
 
         ItemsController itemsController = new ItemsController(bibliotecaAppViewStub);
 
-        itemsController.returnItem(librarySection,Message.SUCCESSFULL_BOOK_RETURN,Message.UNSUCCESSFULL_BOOK_RETURN,"abc");
+        itemsController.returnItem(librarySection, Message.SUCCESSFULL_BOOK_RETURN, Message.UNSUCCESSFULL_BOOK_RETURN, "abc");
 
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.UNSUCCESSFULL_BOOK_RETURN);
 

@@ -23,15 +23,15 @@ public class CheckoutHistory<Section extends Item> {
         for (String user : checkoutList.keySet()) {
             userName = user;
             books = checkoutList.get(user);
-            if(books.size() != 0)
-            result += displayDetailsOfAUser(userName, books) + "\n";
+            if (books.size() != 0)
+                result += displayDetailsOfAUser(userName, books) + "\n";
         }
         return result;
     }
 
     private String displayDetailsOfAUser(String userName, ArrayList<Section> books) {
         String resultData = "";
-        resultData=userName + "\n";
+        resultData = userName + "\n";
         for (Section book : books)
             resultData += book.toString() + "\n";
         return resultData;

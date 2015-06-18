@@ -20,19 +20,19 @@ public class BookTest {
 
     @Test
     public void shouldCheckIfBookNamesMatch() {
-        Book book= new Book("BookName","BookAuthor","Year");
+        Book book = new Book("BookName", "BookAuthor", "Year");
 
-        Boolean actualResult=book.match("BookName");
+        Boolean actualResult = book.match("BookName");
 
         assertEquals(true, actualResult);
     }
 
     @Test
     public void shouldCheckIfBookNamesDoesNotMatch() {
-        Book book= new Book("BookName","BookAuthor","Year");
+        Book book = new Book("BookName", "BookAuthor", "Year");
 
-        Boolean actualResult=book.equals(new String("Book"));
+        Boolean actualResult = book.equals(new String("Book"));
 
-        assertEquals(false,actualResult);
+        assertEquals(false, actualResult);
     }
 }

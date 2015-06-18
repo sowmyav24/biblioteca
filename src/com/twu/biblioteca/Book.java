@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 //Contains details of a particular Book
 
-public class Book implements Item{
+public class Book implements Item {
     private String author;
     private String name;
     private String yearOfPublication;

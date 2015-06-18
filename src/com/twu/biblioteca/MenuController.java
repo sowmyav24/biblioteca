@@ -9,8 +9,8 @@ public class MenuController {
         this.menu = menu;
     }
 
-    public void selectOption(String menuOption,String userId) {
-        menu.compute(menuOption,userId);
+    public void selectOption(String menuOption, String userId) {
+        menu.compute(menuOption, userId);
     }
 }
 

@@ -15,14 +15,14 @@ public class CheckoutMovieTest {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         ItemsController itemsController = mock(ItemsController.class);
         ArrayList<Movie> availableMovie = new ArrayList<Movie>();
-        availableMovie.add(new Movie("Titanic","1993","Cameron","9"));
+        availableMovie.add(new Movie("Titanic", "1993", "Cameron", "9"));
         CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
-        LibrarySection<Movie> librarySection= new LibrarySection<Movie>(availableMovie,new ArrayList<Movie>(),checkoutHistory);
+        LibrarySection<Movie> librarySection = new LibrarySection<Movie>(availableMovie, new ArrayList<Movie>(), checkoutHistory);
 
-        CheckoutMovie checkoutMovie = new CheckoutMovie(bibliotecaAppViewStub,itemsController,librarySection);
+        CheckoutMovie checkoutMovie = new CheckoutMovie(bibliotecaAppViewStub, itemsController, librarySection);
 
         checkoutMovie.compute(UserId);
 
-        verify(itemsController, times(1)).checkout(librarySection,Message.SUCCESSFULL_MOVIE_CHECKOUT,Message.UNSUCCESSFULL_MOVIE_CHECKOUT,UserId);
+        verify(itemsController, times(1)).checkout(librarySection, Message.SUCCESSFULL_MOVIE_CHECKOUT, Message.UNSUCCESSFULL_MOVIE_CHECKOUT, UserId);
     }
 }

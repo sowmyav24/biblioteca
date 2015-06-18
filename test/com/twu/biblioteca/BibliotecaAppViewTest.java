@@ -56,6 +56,7 @@ public class BibliotecaAppViewTest {
 
         assertEquals("abc", actualInput);
     }
+
     @After
     public void cleanUpStreams() {
         System.setOut(null);

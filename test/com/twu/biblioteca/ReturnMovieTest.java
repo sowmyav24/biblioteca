@@ -17,13 +17,13 @@ public class ReturnMovieTest {
         ArrayList<Movie> issuedMovie = new ArrayList<Movie>();
         issuedMovie.add(new Movie("Titanic", "1993", "Cameron", "9"));
         CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
-        LibrarySection<Movie> librarySection = new LibrarySection<Movie>(new ArrayList<Movie>(), issuedMovie,checkoutHistory);
+        LibrarySection<Movie> librarySection = new LibrarySection<Movie>(new ArrayList<Movie>(), issuedMovie, checkoutHistory);
 
 
         ReturnMovie returnMovie = new ReturnMovie(bibliotecaAppViewStub, itemsController, librarySection);
 
         returnMovie.compute("abc");
 
-        verify(itemsController, times(1)).returnItem(librarySection, Message.SUCCESSFULL_MOVIE_RETURN, Message.UNSUCCESSFULL_MOVIE_RETURN,"abc");
+        verify(itemsController, times(1)).returnItem(librarySection, Message.SUCCESSFULL_MOVIE_RETURN, Message.UNSUCCESSFULL_MOVIE_RETURN, "abc");
     }
 }

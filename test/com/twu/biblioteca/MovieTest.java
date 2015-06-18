@@ -11,7 +11,7 @@ public class MovieTest {
 
     @Test
     public void shouldReturnMovieDetails() {
-        Movie movie= new Movie("Titanic","1993","Cameron","9");
+        Movie movie= new Movie("Titanic", "1993", "Cameron", "9");
 
         String actualDetails = movie.toString();
 

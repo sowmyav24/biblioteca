@@ -13,7 +13,7 @@ public class QuitMenuTest {
     public void exitsWithStatusCode() {
         exit.expectSystemExitWithStatus(0);
 
-        QuitMenu quitMenu=new QuitMenu();
+        QuitMenu quitMenu = new QuitMenu();
 
         quitMenu.compute("abc");
     }
