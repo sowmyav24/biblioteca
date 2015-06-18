@@ -1,13 +1,10 @@
 package com.twu.biblioteca;
 
 public class ReturnBook implements MenuActionPerformed {
-
-    private BibliotecaAppView bibliotecaAppView;
     private ItemsController itemsController;
     private LibrarySection librarySection;
 
-    public ReturnBook(BibliotecaAppView bibliotecaAppView, ItemsController itemsController, LibrarySection librarySection) {
-        this.bibliotecaAppView = bibliotecaAppView;
+    public ReturnBook(ItemsController itemsController, LibrarySection librarySection) {
         this.itemsController = itemsController;
         this.librarySection = librarySection;
     }

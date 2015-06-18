@@ -42,7 +42,7 @@ public class Main {
         menuItems.put("List Books", new ListItems(itemsController, bookSection));
         menuItems.put("List Movies", new ListItems(itemsController, movieSection));
         menuItems.put("Checkout Book", new CheckoutBook(itemsController, bookSection));
-        menuItems.put("Return Book", new ReturnBook(bibliotecaAppView, itemsController, bookSection));
+        menuItems.put("Return Book", new ReturnBook(itemsController, bookSection));
         menuItems.put("Checkout Movie", new CheckoutMovie(itemsController, movieSection));
         menuItems.put("Return Movie", new ReturnMovie(bibliotecaAppView, itemsController, movieSection));
         menuItems.put("Quit", new QuitMenu());
