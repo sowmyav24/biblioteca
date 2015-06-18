@@ -1,12 +1,10 @@
 package com.twu.biblioteca;
 
 public class ReturnMovie implements MenuActionPerformed {
-    private BibliotecaAppView bibliotecaAppView;
     private ItemsController itemsController;
     private LibrarySection librarySection;
 
-    public ReturnMovie(BibliotecaAppView bibliotecaAppView, ItemsController itemsController, LibrarySection librarySection) {
-        this.bibliotecaAppView = bibliotecaAppView;
+    public ReturnMovie(ItemsController itemsController, LibrarySection librarySection) {
         this.itemsController = itemsController;
         this.librarySection = librarySection;
     }

@@ -12,7 +12,6 @@ public class ReturnMovieTest {
 
     @Test
     public void shouldCallReturnMovie() {
-        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         ItemsController itemsController = mock(ItemsController.class);
         ArrayList<Movie> issuedMovie = new ArrayList<Movie>();
         issuedMovie.add(new Movie("Titanic", "1993", "Cameron", "9"));
@@ -20,7 +19,7 @@ public class ReturnMovieTest {
         LibrarySection<Movie> librarySection = new LibrarySection<Movie>(new ArrayList<Movie>(), issuedMovie, checkoutHistory);
 
 
-        ReturnMovie returnMovie = new ReturnMovie(bibliotecaAppViewStub, itemsController, librarySection);
+        ReturnMovie returnMovie = new ReturnMovie(itemsController, librarySection);
 
         returnMovie.compute("abc");
 
