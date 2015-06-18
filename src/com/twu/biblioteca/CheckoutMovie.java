@@ -1,13 +1,10 @@
 package com.twu.biblioteca;
 
 public class CheckoutMovie implements MenuActionPerformed {
-
-    private BibliotecaAppView bibliotecaAppView;
     private LibrarySection librarySection;
     private ItemsController itemsController;
 
-    public CheckoutMovie(BibliotecaAppView bibliotecaAppView, ItemsController itemsController, LibrarySection librarySection) {
-        this.bibliotecaAppView = bibliotecaAppView;
+    public CheckoutMovie(ItemsController itemsController, LibrarySection librarySection) {
         this.itemsController = itemsController;
         this.librarySection = librarySection;
     }

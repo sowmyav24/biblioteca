@@ -12,14 +12,13 @@ public class CheckoutMovieTest {
     @Test
     public void shouldReadBookName() {
         String UserId = "xyz";
-        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         ItemsController itemsController = mock(ItemsController.class);
         ArrayList<Movie> availableMovie = new ArrayList<Movie>();
         availableMovie.add(new Movie("Titanic", "1993", "Cameron", "9"));
         CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
         LibrarySection<Movie> librarySection = new LibrarySection<Movie>(availableMovie, new ArrayList<Movie>(), checkoutHistory);
 
-        CheckoutMovie checkoutMovie = new CheckoutMovie(bibliotecaAppViewStub, itemsController, librarySection);
+        CheckoutMovie checkoutMovie = new CheckoutMovie(itemsController, librarySection);
 
         checkoutMovie.compute(UserId);
 
