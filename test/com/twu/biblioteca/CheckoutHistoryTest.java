@@ -20,7 +20,7 @@ public class CheckoutHistoryTest {
 
         String actualData = checkoutHistory.displayCheckedOutItems();
 
-        assertEquals("User 1\nThe Monk Who Sold His Ferrari, Robin Sharma, 2007\n\n", actualData);
+        assertEquals("User 1\nThe Monk Who Sold His Ferrari | Robin Sharma | 2007\n\n", actualData);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class CheckoutHistoryTest {
 
         String actualData = checkoutHistory.displayCheckedOutItems();
 
-        assertEquals("User 1\nThe Monk Who Sold His Ferrari, Robin Sharma, 2007\nJava, Jones, 2007\n\n", actualData);
+        assertEquals("User 1\nThe Monk Who Sold His Ferrari | Robin Sharma | 2007\nJava | Jones | 2007\n\n", actualData);
     }
 
 }

@@ -19,7 +19,7 @@ public class LibrarySectionTest {
 
         String actualList = librarySection.toString();
 
-        assertEquals("The Monk Who Sold His Ferrari, Robin Sharma, 2007\n", actualList);
+        assertEquals("The Monk Who Sold His Ferrari | Robin Sharma | 2007\n", actualList);
     }
 
     @Test

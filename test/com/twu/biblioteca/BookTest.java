@@ -15,7 +15,7 @@ public class BookTest {
 
         String actualDetails = book.toString();
 
-        assertThat(actualDetails, is(equalTo("The Monk Who Sold His Ferrari, Robin Sharma, 2007")));
+        assertThat(actualDetails, is(equalTo("The Monk Who Sold His Ferrari | Robin Sharma | 2007")));
     }
 
     @Test

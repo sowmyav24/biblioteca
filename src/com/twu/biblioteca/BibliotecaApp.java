@@ -15,18 +15,17 @@ public class BibliotecaApp {
         this.user = user;
         this.loginAuthentication = loginAuthentication;
         this.checkoutHistory = checkoutHistory;
-        this.userId="";
+        this.userId = "";
     }
 
     public void start() {
         bibliotecaAppView.displayMessage(Message.WELCOME_MESSAGE);
         bibliotecaAppView.displayMessage(Message.LOGIN_PASSWORD);
-        String result = loginAuthentication.authenticate(this.userId=bibliotecaAppView.readInput(), bibliotecaAppView.readInput());
+        String result = loginAuthentication.authenticate(this.userId = bibliotecaAppView.readInput(), bibliotecaAppView.readInput());
         if (result == "User") {
             DisplayMenu();
 
-        }
-        else if (result == "Librarian") {
+        } else if (result == "Librarian") {
             bibliotecaAppView.displayMessage(checkoutHistory.displayCheckedOutItems());
             DisplayMenu();
         }
@@ -38,10 +37,10 @@ public class BibliotecaApp {
             bibliotecaAppView.displayMessage(this.user.returnDetails());
             bibliotecaAppView.displayMessage(Message.MENU_LIST);
             input = bibliotecaAppView.readInput();
-            if(input.equals("Logout"))
+            if (input.equals("Logout"))
                 start();
             else
-               menuController.selectOption(input,userId);
+                menuController.selectOption(input, userId);
         } while (input != "Quit");
     }
 }

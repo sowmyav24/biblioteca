@@ -16,7 +16,7 @@ public class Book implements Item{
     }
 
     public String toString() {
-        return name + ", " + author + ", " + yearOfPublication;
+        return name + " | " + author + " | " + yearOfPublication;
     }
 
     public boolean match(String o) {
