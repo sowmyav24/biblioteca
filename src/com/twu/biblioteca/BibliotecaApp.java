@@ -26,9 +26,9 @@ public class BibliotecaApp {
             DisplayMenu();
 
         } else if (result == "Librarian") {
-            bibliotecaAppView.displayMessage("");
             bibliotecaAppView.displayMessage(checkoutHistory.displayCheckedOutItems());
             DisplayMenu();
+            bibliotecaAppView.displayMessage("Checkout History");
         }
     }
 
@@ -36,7 +36,7 @@ public class BibliotecaApp {
         String input;
         do {
             bibliotecaAppView.displayMessage(this.user.returnDetails());
-            bibliotecaAppView.displayMessage(Message.MENU_LIST);
+            bibliotecaAppView.displayMessage(Message.MAIN_MENU);
             input = bibliotecaAppView.readInput();
             if (input.equals("Logout"))
                 start();
