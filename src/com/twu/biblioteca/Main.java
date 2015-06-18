@@ -20,6 +20,21 @@ public class Main {
         BibliotecaAppView bibliotecaAppView = new BibliotecaAppView(scanner);
 
         ItemsController itemsController = new ItemsController(bibliotecaAppView);
+        HashMap<String, ArrayList<Book>> checkoutList = new HashMap<>();
+        checkoutList.put("User 1", new ArrayList<Book>());
+
+        CheckoutHistory checkoutHistory = new CheckoutHistory(checkoutList);
+
+        checkoutHistory.add("User 1", new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
+
+        User user = new User("User1", "xyz@gmail.com", "9999", "xyz", "xyz123", "User");
+        User librarian = new User("User2", "abc@gmail.com", "8888", "abc", "abc123", "Librarian");
+
+        ArrayList<User> users = new ArrayList<User>();
+        users.add(user);
+        users.add(librarian);
+
+        LoginAuthentication loginAuthentication = new LoginAuthentication(users);
 
         HashMap<String, MenuActionPerformed> menuItems = new HashMap<>();
         menuItems.put("List Books", new ListItems(itemsController, bookSection));
@@ -35,7 +50,7 @@ public class Main {
 
         MenuController menuController = new MenuController(bibliotecaAppView, menu);
 
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppView, menuController);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppView, menuController, user,loginAuthentication,checkoutHistory);
 
         bibliotecaApp.start();
     }

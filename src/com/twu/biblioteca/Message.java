@@ -12,5 +12,5 @@ public interface Message {
     String SUCCESSFULL_MOVIE_RETURN = "Thank you for returning the movie";
     String UNSUCCESSFULL_BOOK_RETURN = "That is not a valid book to return";
     String UNSUCCESSFULL_MOVIE_RETURN = "That is not a valid movie to return";
-
+    String LOGIN_PASSWORD = "Enter you Login ID and Passsword";
 }

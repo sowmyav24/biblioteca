@@ -12,11 +12,14 @@ public class BibliotecaAppTest {
         when(bibliotecaAppViewStub.readInput())
                 .thenReturn("List Books,Quit", "Quit");
         MenuController menuControllerStub = mock(MenuController.class);
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppViewStub, menuControllerStub);
+        User user = mock(User.class);
+        LoginAuthentication loginAuthentication = mock(LoginAuthentication.class);
+        CheckoutHistory checkoutHistory=mock(CheckoutHistory.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppViewStub, menuControllerStub, user, loginAuthentication,checkoutHistory);
 
         bibliotecaApp.start();
 
-        verify(bibliotecaAppViewStub,times(3)).displayMessage(anyString());
+        verify(bibliotecaAppViewStub, times(2)).displayMessage(anyString());
 
     }
 }

@@ -10,13 +10,12 @@ public class LoginAuthentication {
     }
 
     public String authenticate(String userId, String password) {
-        for (User user : users) {
+        for (User user : users)
             if (user.match(userId, password))
                 if (user.isLibrarian())
                     return "Librarian";
-            else
-                return "User";
-        }
+                else
+                    return "User";
         return "Invalid";
     }
 }
