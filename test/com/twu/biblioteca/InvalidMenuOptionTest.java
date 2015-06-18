@@ -21,7 +21,6 @@ public class InvalidMenuOptionTest {
 
     @Test
     public void shouldComputeInvalidOption() {
-        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         ItemsController itemsControllerStub = mock(ItemsController.class);
         LibrarySection librarySectionStub = mock(LibrarySection.class);
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption(itemsControllerStub,librarySectionStub);

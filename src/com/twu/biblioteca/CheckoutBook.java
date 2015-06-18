@@ -2,12 +2,10 @@ package com.twu.biblioteca;
 
 public class CheckoutBook implements MenuActionPerformed {
 
-    private BibliotecaAppView bibliotecaAppView;
     private LibrarySection librarySection;
     private ItemsController itemsController;
 
-    public CheckoutBook(BibliotecaAppView bibliotecaAppView, ItemsController itemsController, LibrarySection librarySection) {
-        this.bibliotecaAppView = bibliotecaAppView;
+    public CheckoutBook(ItemsController itemsController, LibrarySection librarySection) {
         this.itemsController = itemsController;
         this.librarySection = librarySection;
     }

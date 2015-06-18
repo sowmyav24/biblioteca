@@ -10,14 +10,13 @@ public class CheckoutBookTest {
 
     @Test
     public void shouldReadBookName() {
-        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         ItemsController itemsController = mock(ItemsController.class);
         ArrayList<Book> availableBook = new ArrayList<Book>();
         availableBook.add(new Book("The Monk Who Sold His Ferrari", "Robin Sharma", "2007"));
         CheckoutHistory checkoutHistory = mock(CheckoutHistory.class);
         LibrarySection<Book> librarySection = new LibrarySection<Book>(availableBook, new ArrayList<Book>(), checkoutHistory);
 
-        CheckoutBook checkoutBook = new CheckoutBook(bibliotecaAppViewStub, itemsController, librarySection);
+        CheckoutBook checkoutBook = new CheckoutBook(itemsController, librarySection);
 
         checkoutBook.compute("xyz");
 
