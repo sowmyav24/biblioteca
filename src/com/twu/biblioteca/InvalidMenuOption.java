@@ -2,13 +2,15 @@ package com.twu.biblioteca;
 
 public class InvalidMenuOption implements MenuActionPerformed {
 
-    private BibliotecaAppView bibliotecaAppView;
+    private ItemsController itemsController;
+    private LibrarySection librarySection;
 
-    public InvalidMenuOption(BibliotecaAppView bibliotecaAppView) {
-        this.bibliotecaAppView = bibliotecaAppView;
+    public InvalidMenuOption(ItemsController itemsController, LibrarySection librarySection) {
+        this.itemsController = itemsController;
+        this.librarySection = librarySection;
     }
 
     public void compute(String userId) {
-        bibliotecaAppView.displayMessage(Message.INVALID_MENU_OPTION_MESSAGE);
+       itemsController.returnInvalidOption();
     }
 }

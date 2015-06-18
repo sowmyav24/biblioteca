@@ -46,7 +46,7 @@ public class Main {
         menuItems.put("Checkout Movie", new CheckoutMovie(bibliotecaAppView, itemsController, movieSection));
         menuItems.put("Return Movie", new ReturnMovie(bibliotecaAppView, itemsController, movieSection));
         menuItems.put("Quit", new QuitMenu());
-        menuItems.put("Invalid", new InvalidMenuOption(bibliotecaAppView));
+        menuItems.put("Invalid", new InvalidMenuOption(itemsController,bookSection));
 
         Menu menu = new Menu(menuItems);
 

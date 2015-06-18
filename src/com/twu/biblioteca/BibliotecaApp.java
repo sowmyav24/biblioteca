@@ -26,6 +26,7 @@ public class BibliotecaApp {
             DisplayMenu();
 
         } else if (result == "Librarian") {
+            bibliotecaAppView.displayMessage("");
             bibliotecaAppView.displayMessage(checkoutHistory.displayCheckedOutItems());
             DisplayMenu();
         }

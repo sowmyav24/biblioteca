@@ -21,4 +21,8 @@ public class ItemsController {
         String itemInput = bibliotecaAppView.readInput();
         bibliotecaAppView.displayMessage(librarySection.returnItem(itemInput, successfullMessage, unsuccessfullMessage, userId));
     }
+
+    public void returnInvalidOption() {
+        bibliotecaAppView.displayMessage(Message.INVALID_MENU_OPTION_MESSAGE);
+    }
 }

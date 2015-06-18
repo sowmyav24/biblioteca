@@ -8,7 +8,6 @@ import org.mockito.Mockito;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 
@@ -21,13 +20,15 @@ public class InvalidMenuOptionTest {
     }
 
     @Test
-    public void shouldPrintMessageForInvalidOption() {
+    public void shouldComputeInvalidOption() {
         BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption(bibliotecaAppViewStub);
+        ItemsController itemsControllerStub = mock(ItemsController.class);
+        LibrarySection librarySectionStub = mock(LibrarySection.class);
+        InvalidMenuOption invalidMenuOption = new InvalidMenuOption(itemsControllerStub,librarySectionStub);
 
         invalidMenuOption.compute("abc");
 
-        Mockito.verify(bibliotecaAppViewStub, times(1)).displayMessage(anyString());
+        Mockito.verify(itemsControllerStub, times(1)).returnInvalidOption();
     }
 
     @After
