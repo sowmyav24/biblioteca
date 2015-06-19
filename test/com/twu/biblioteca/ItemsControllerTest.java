@@ -96,4 +96,14 @@ public class ItemsControllerTest {
         verify(bibliotecaAppViewStub, times(1)).displayMessage(Message.UNSUCCESSFULL_BOOK_RETURN);
 
     }
+
+    @Test
+    public void shouldReturnInvalidOption() {
+        BibliotecaAppView bibliotecaAppView = mock(BibliotecaAppView.class);
+        ItemsController itemsController = new ItemsController(bibliotecaAppView);
+
+        itemsController.returnInvalidOption();
+
+        verify(bibliotecaAppView, times(1)).displayMessage(Message.INVALID_MENU_OPTION_MESSAGE);
+    }
 }
