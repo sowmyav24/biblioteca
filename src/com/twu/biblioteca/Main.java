@@ -51,7 +51,7 @@ public class Main {
 
         Menu menu = new Menu(menuItems);
 
-        MenuController menuController = new MenuController(bibliotecaAppView, menu);
+        MenuController menuController = new MenuController(menu);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppView, menuController,loginAuthentication);
 

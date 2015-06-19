@@ -8,9 +8,8 @@ public class MenuControllerTest {
 
     @Test
     public void shouldCallAppropriateMenuOption() {
-        BibliotecaAppView bibliotecaAppViewStub = mock(BibliotecaAppView.class);
         Menu menuStub = mock(Menu.class);
-        MenuController menuController = new MenuController(bibliotecaAppViewStub, menuStub);
+        MenuController menuController = new MenuController(menuStub);
 
         menuController.selectOption("List LibrarySection", "abc");
 
