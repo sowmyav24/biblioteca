@@ -4,17 +4,13 @@ public class BibliotecaApp {
 
     private BibliotecaAppView bibliotecaAppView;
     private MenuController menuController;
-    private User user;
     private LoginAuthentication loginAuthentication;
-    private CheckoutHistory checkoutHistory;
     private String userId;
 
-    public BibliotecaApp(BibliotecaAppView bibliotecaAppView, MenuController menuController, User user, LoginAuthentication loginAuthentication, CheckoutHistory checkoutHistory) {
+    public BibliotecaApp(BibliotecaAppView bibliotecaAppView, MenuController menuController,LoginAuthentication loginAuthentication) {
         this.bibliotecaAppView = bibliotecaAppView;
         this.menuController = menuController;
-        this.user = user;
         this.loginAuthentication = loginAuthentication;
-        this.checkoutHistory = checkoutHistory;
         this.userId = "";
     }
 

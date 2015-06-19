@@ -53,7 +53,7 @@ public class Main {
 
         MenuController menuController = new MenuController(bibliotecaAppView, menu);
 
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppView, menuController, user, loginAuthentication, checkoutHistory);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppView, menuController,loginAuthentication);
 
         bibliotecaApp.start();
     }
