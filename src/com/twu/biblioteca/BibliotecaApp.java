@@ -19,30 +19,25 @@ public class BibliotecaApp {
     }
 
     public void start() {
+        String input;
         bibliotecaAppView.displayMessage(Message.WELCOME_MESSAGE);
         bibliotecaAppView.displayMessage(Message.LOGIN_PASSWORD);
         String result = loginAuthentication.authenticate(this.userId = bibliotecaAppView.readInput(), bibliotecaAppView.readInput());
-        if (result == "User") {
-            DisplayMenu();
-
-        } else if (result == "Librarian") {
-            bibliotecaAppView.displayMessage(checkoutHistory.displayCheckedOutItems());
-            DisplayMenu();
-            bibliotecaAppView.displayMessage("Checkout History");
+        if (result != "Invalid") {
+            do {
+                if (result == "User")
+                    bibliotecaAppView.displayMessage(Message.USER_MENU_LIST);
+                else if (result == "Librarian")
+                    bibliotecaAppView.displayMessage(Message.LIBRARIAN_MENU_LIST);
+                input = bibliotecaAppView.readInput();
+                if (input.equals("Logout"))
+                    start();
+                else
+                    menuController.selectOption(input, userId);
+            } while (input != "Quit");
         }
     }
-
-    private void DisplayMenu() {
-        String input;
-        do {
-            bibliotecaAppView.displayMessage(this.user.returnDetails());
-            bibliotecaAppView.displayMessage(Message.MAIN_MENU);
-            input = bibliotecaAppView.readInput();
-            if (input.equals("Logout"))
-                start();
-            else
-                menuController.selectOption(input, userId);
-        } while (input != "Quit");
-    }
 }
+
+
 

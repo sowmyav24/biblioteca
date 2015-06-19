@@ -3,9 +3,8 @@ package com.twu.biblioteca;
 public interface Message {
     String WELCOME_MESSAGE = "Welcome to BIBLIOTECA";
     String INVALID_MENU_OPTION_MESSAGE = "Select a valid option!";
-    String MAIN_MENU = "List Movies\n" + "List Books\n" + "Login\n";
     String USER_MENU_LIST = "List Books\n" + "Checkout Book\n" + "Return Book\n" + "List Movies\n" + "Checkout Movie\n" + "Return Movie\n" + "Logout";
-    String LIBRARIAN_MENU_LIST = "List Books\n" + "Checkout Book\n" + "Return Book\n" + "List Movies\n" + "Checkout Movie\n" + "Return Movie\n" + "Checkedout Items\n" + "Logout";
+    String LIBRARIAN_MENU_LIST = "List Books\n" + "Checkout Book\n" + "Return Book\n" + "List Movies\n" + "Checkout Movie\n" + "Return Movie\n" + "Checkout History\n" + "Logout\n" + "Quit\n";
     String SUCCESSFULL_BOOK_CHECKOUT = "Thank you! Enjoy the book";
     String SUCCESSFULL_MOVIE_CHECKOUT = "Thank you! Enjoy the movie";
     String UNSUCCESSFULL_BOOK_CHECKOUT = "That book is not available";

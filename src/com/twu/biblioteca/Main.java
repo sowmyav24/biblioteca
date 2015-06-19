@@ -21,7 +21,7 @@ public class Main {
         checkoutList.put("xyz", new ArrayList<Book>());
         checkoutList.put("pqr", new ArrayList<Book>());
 
-        CheckoutHistory checkoutHistory = new CheckoutHistory(checkoutList);
+        CheckoutHistory checkoutHistory = new CheckoutHistory(checkoutList,bibliotecaAppView);
 
         User user = new User("User1", "xyz@gmail.com", "9999", "xyz", "xyz123", "User");
         User secondUser = new User("User2", "pqr@gmail.com", "9999", "pqr", "pqr123", "User");
@@ -32,7 +32,7 @@ public class Main {
         users.add(secondUser);
         users.add(librarian);
 
-        LoginAuthentication loginAuthentication = new LoginAuthentication(users);
+        LoginAuthentication loginAuthentication = new LoginAuthentication(users,bibliotecaAppView);
 
 
         LibrarySection bookSection = new LibrarySection(book, new ArrayList<Book>(), checkoutHistory);
@@ -45,6 +45,7 @@ public class Main {
         menuItems.put("Return Book", new ReturnBook(itemsController, bookSection));
         menuItems.put("Checkout Movie", new CheckoutMovie(itemsController, movieSection));
         menuItems.put("Return Movie", new ReturnMovie(itemsController, movieSection));
+        menuItems.put("Checkout History", new CheckoutHistory(checkoutList,bibliotecaAppView));
         menuItems.put("Quit", new QuitMenu());
         menuItems.put("Invalid", new InvalidMenuOption(itemsController,bookSection));
 
