@@ -25,9 +25,11 @@ public class CheckoutHistory<Section extends Item> implements MenuActionPerforme
         return resultData;
     }
 
-    public void remove(String userId, Section item) {
+    public Boolean remove(String userId, Section item) {
         ArrayList<Section> checkout = checkoutList.get(userId);
+        Boolean isEmpty= checkout.isEmpty();
         checkout.remove(item);
+        return isEmpty;
     }
 
     @Override

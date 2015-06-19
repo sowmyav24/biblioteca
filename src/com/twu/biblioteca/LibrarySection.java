@@ -35,10 +35,11 @@ public class LibrarySection<Section extends Item> {
     public String returnItem(String searchItemName, String successfull, String unsuccessfull, String userId) {
         ArrayList<Section> searchResult = search(searchItemName, issuedItems);
         for (Section item : searchResult) {
-            availableItems.add(item);
-            issuedItems.remove(item);
-            checkoutHistory.remove(userId, item);
-            return successfull;
+            if (!checkoutHistory.remove(userId, item)) {
+                availableItems.add(item);
+                issuedItems.remove(item);
+                return successfull;
+            }
         }
         return unsuccessfull;
     }

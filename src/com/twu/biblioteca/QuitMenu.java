@@ -5,6 +5,5 @@ public class QuitMenu implements MenuActionPerformed {
 
     public void compute(String userId) {
         quitMessage = "End";
-        System.exit(0);
-    }
+        System.exit(0);}
 }
