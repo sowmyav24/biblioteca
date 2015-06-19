@@ -21,7 +21,7 @@ public class Main {
         checkoutList.put("xyz", new ArrayList<Book>());
         checkoutList.put("pqr", new ArrayList<Book>());
 
-        CheckoutHistory checkoutHistory = new CheckoutHistory(checkoutList,bibliotecaAppView);
+        CheckoutHistory checkoutHistory = new CheckoutHistory(checkoutList, bibliotecaAppView);
 
         User user = new User("User1", "xyz@gmail.com", "9999", "xyz", "xyz123", "User");
         User secondUser = new User("User2", "pqr@gmail.com", "9999", "pqr", "pqr123", "User");
@@ -32,28 +32,29 @@ public class Main {
         users.add(secondUser);
         users.add(librarian);
 
-        LoginAuthentication loginAuthentication = new LoginAuthentication(users,bibliotecaAppView);
+        LoginAuthentication loginAuthentication = new LoginAuthentication(users, bibliotecaAppView);
 
 
         LibrarySection bookSection = new LibrarySection(book, new ArrayList<Book>(), checkoutHistory);
         LibrarySection movieSection = new LibrarySection(movie, new ArrayList<Movie>(), checkoutHistory);
-
         HashMap<String, MenuActionPerformed> menuItems = new HashMap<>();
+
+        Menu menu = new Menu(menuItems);
+
+        MenuController menuController = new MenuController(menu);
+
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppView, menuController, loginAuthentication);
+
         menuItems.put("List Books", new ListItems(itemsController, bookSection));
         menuItems.put("List Movies", new ListItems(itemsController, movieSection));
         menuItems.put("Checkout Book", new CheckoutBook(itemsController, bookSection));
         menuItems.put("Return Book", new ReturnBook(itemsController, bookSection));
         menuItems.put("Checkout Movie", new CheckoutMovie(itemsController, movieSection));
         menuItems.put("Return Movie", new ReturnMovie(itemsController, movieSection));
-        menuItems.put("Checkout History", new CheckoutHistory(checkoutList,bibliotecaAppView));
+        menuItems.put("Checkout History", new CheckoutHistory(checkoutList, bibliotecaAppView));
+        menuItems.put("Logout", new Logout(bibliotecaApp));
         menuItems.put("Quit", new QuitMenu());
-        menuItems.put("Invalid", new InvalidMenuOption(itemsController,bookSection));
-
-        Menu menu = new Menu(menuItems);
-
-        MenuController menuController = new MenuController(menu);
-
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppView, menuController,loginAuthentication);
+        menuItems.put("Invalid", new InvalidMenuOption(itemsController, bookSection));
 
         bibliotecaApp.start();
     }

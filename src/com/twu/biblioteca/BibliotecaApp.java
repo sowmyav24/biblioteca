@@ -23,12 +23,9 @@ public class BibliotecaApp {
             do {
                 if (result == "User")
                     bibliotecaAppView.displayMessage(Message.USER_MENU_LIST);
-                else if (result == "Librarian")
+                else if(result == "Librarian")
                     bibliotecaAppView.displayMessage(Message.LIBRARIAN_MENU_LIST);
                 input = bibliotecaAppView.readInput();
-                if (input.equals("Logout"))
-                    start();
-                else
                     menuController.selectOption(input, userId);
             } while (input != "Quit");
         }

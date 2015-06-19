@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.HashMap;
 
 public class Menu {
-    HashMap<Integer, MenuActionPerformed> menuItems;
+    private HashMap<Integer, MenuActionPerformed> menuItems;
 
     public Menu(HashMap menuItems) {
         this.menuItems = menuItems;
