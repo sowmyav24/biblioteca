@@ -54,7 +54,7 @@ public class Main {
         menuItems.put("Return Movie", new ReturnMovie(itemsController, movieSection));
         menuItems.put("Checkout History", new CheckoutHistory(checkoutList, bibliotecaAppView));
         menuItems.put("Logout", new Logout(bibliotecaApp));
-        menuItems.put("Login", new Login(bibliotecaAppView,loginAuthentication,bibliotecaApp));
+        menuItems.put("Login", new Login(bibliotecaAppView,loginAuthentication,menuController));
         menuItems.put("Quit", new QuitMenu());
         menuItems.put("Invalid", new InvalidMenuOption(itemsController, bookSection));
 

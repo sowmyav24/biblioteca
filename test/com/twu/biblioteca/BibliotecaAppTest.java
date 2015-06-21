@@ -16,6 +16,7 @@ public class BibliotecaAppTest {
         BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppViewStub, menuControllerStub,loginAuthentication);
 
         bibliotecaApp.start("xyz");
+
         verify(bibliotecaAppViewStub, times(4)).displayMessage(anyString());
     }
 }
