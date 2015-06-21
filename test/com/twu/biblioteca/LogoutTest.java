@@ -15,6 +15,6 @@ public class LogoutTest {
 
         logout.compute("abc");
 
-        verify(bibliotecaApp, times(1)).start();
+        verify(bibliotecaApp, times(1)).start("abc");
     }
 }

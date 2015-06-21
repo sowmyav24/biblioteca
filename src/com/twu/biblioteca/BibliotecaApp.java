@@ -14,20 +14,15 @@ public class BibliotecaApp {
         this.userId = "";
     }
 
-    public void start() {
+    public void start(String userId) {
         String input;
         bibliotecaAppView.displayMessage(Message.WELCOME_MESSAGE);
-        bibliotecaAppView.displayMessage(Message.LOGIN_PASSWORD);
-        String result = loginAuthentication.authenticate(this.userId = bibliotecaAppView.readInput(), bibliotecaAppView.readInput());
-        if (result != "Invalid")
-            do {
-                if (result == "User")
-                    bibliotecaAppView.displayMessage(Message.USER_MENU_LIST);
-                else if (result == "Librarian")
-                    bibliotecaAppView.displayMessage(Message.LIBRARIAN_MENU_LIST);
-                input = bibliotecaAppView.readInput();
-                menuController.selectOption(input, userId);
-            } while (input != "Quit");
+        bibliotecaAppView.displayMessage(Message.MAIN_MENU_LIST);
+        do{
+            bibliotecaAppView.displayMessage(Message.MENU_INPUT);
+            input = bibliotecaAppView.readInput();
+            menuController.selectOption(input, userId);
+        } while (input != "Quit");
     }
 }
 

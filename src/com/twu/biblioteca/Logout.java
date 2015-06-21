@@ -10,6 +10,6 @@ public class Logout implements MenuActionPerformed {
 
     @Override
     public void compute(String userId) {
-        bibliotecaApp.start();
+        bibliotecaApp.start(userId);
     }
 }

@@ -15,8 +15,7 @@ public class BibliotecaAppTest {
         LoginAuthentication loginAuthentication = mock(LoginAuthentication.class);
         BibliotecaApp bibliotecaApp = new BibliotecaApp(bibliotecaAppViewStub, menuControllerStub,loginAuthentication);
 
-        bibliotecaApp.start();
-
-        verify(bibliotecaAppViewStub, times(2)).displayMessage(anyString());
+        bibliotecaApp.start("xyz");
+        verify(bibliotecaAppViewStub, times(4)).displayMessage(anyString());
     }
 }
