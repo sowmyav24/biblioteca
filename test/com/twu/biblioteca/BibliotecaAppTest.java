@@ -17,6 +17,6 @@ public class BibliotecaAppTest {
 
         bibliotecaApp.start("xyz");
 
-        verify(bibliotecaAppViewStub, times(4)).displayMessage(anyString());
+        verify(bibliotecaAppViewStub, times(6)).displayMessage(anyString());
     }
 }

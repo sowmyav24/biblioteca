@@ -22,6 +22,8 @@ public class BibliotecaApp {
             bibliotecaAppView.displayMessage(Message.MENU_INPUT);
             input = bibliotecaAppView.readInput();
             menuController.selectOption(input, userId);
+            if(input!= "Login")
+                bibliotecaAppView.displayMessage(Message.MAIN_MENU_LIST);
         } while (input != "Quit");
     }
 }

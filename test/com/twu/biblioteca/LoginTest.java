@@ -7,7 +7,7 @@ import static org.mockito.Mockito.*;
 public class LoginTest {
 
     @Test
-    public void shouldAuthenticateLogin() {
+    public void shouldAuthenticateLoginForLibrarian() {
         BibliotecaAppView bibliotecaAppView = mock(BibliotecaAppView.class);
         when(bibliotecaAppView.readInput())
                 .thenReturn("List Books,Logout", "Logout");
