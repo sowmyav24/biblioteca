@@ -28,7 +28,7 @@ public class BibliotecaAppViewTest {
 
         bibliotecaAppView.displayMessage(Message.WELCOME_MESSAGE);
 
-        assertEquals("Welcome to BIBLIOTECA\n", outContent.toString());
+        assertEquals("\nWelcome to BIBLIOTECA\n", outContent.toString());
     }
 
     @Test

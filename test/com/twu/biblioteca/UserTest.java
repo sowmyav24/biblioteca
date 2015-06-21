@@ -12,7 +12,7 @@ public class UserTest {
 
         String userDetails = user.returnDetails();
 
-        assertEquals("Name|email|phone", userDetails);
+        assertEquals("\nYour Details\nName|email|phone", userDetails);
     }
 
     @Test

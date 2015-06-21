@@ -18,7 +18,7 @@ public class User {
     }
 
     public String returnDetails() {
-        return name + "|" + email + "|" + phone;
+        return "\nYour Details\n" + name + "|" + email + "|" + phone;
     }
 
     public boolean match(String userId, String password) {
