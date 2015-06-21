@@ -9,18 +9,18 @@ public class ItemsController {
 
     public void returnListOfAllItems(LibrarySection librarySection) {
         String listOfBooks = librarySection.toString();
-        bibliotecaAppView.displayMessage("\nDetails\n");
+        bibliotecaAppView.displayMessage("Details");
         bibliotecaAppView.displayMessage(listOfBooks);
     }
 
     public void checkout(LibrarySection librarySection, String successfullMessage, String unsuccessfullMessage, String userId) {
-        bibliotecaAppView.displayMessage("\nEnter the title name\n");
+        bibliotecaAppView.displayMessage("Enter the title name");
         String itemInput = bibliotecaAppView.readInput();
         bibliotecaAppView.displayMessage(librarySection.checkout(itemInput, successfullMessage, unsuccessfullMessage, userId));
     }
 
     public void returnItem(LibrarySection librarySection, String successfullMessage, String unsuccessfullMessage, String userId) {
-        bibliotecaAppView.displayMessage("\nEnter the title name\n");
+        bibliotecaAppView.displayMessage("Enter the title name");
         String itemInput = bibliotecaAppView.readInput();
         bibliotecaAppView.displayMessage(librarySection.returnItem(itemInput, successfullMessage, unsuccessfullMessage, userId));
     }
