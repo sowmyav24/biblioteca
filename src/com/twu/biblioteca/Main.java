@@ -24,9 +24,9 @@ public class Main {
 
         CheckoutHistory checkoutHistory = new CheckoutHistory(checkoutList, bibliotecaAppView);
 
-        User librarian = new User("User3", "abc@gmail.com", "8888", "111-1111", "abc123", "Librarian");
-        User user = new User("User1", "xyz@gmail.com", "9999", "222-2222", "xyz123", "User");
-        User secondUser = new User("User2", "pqr@gmail.com", "9999", "333-3333", "pqr123", "User");
+        User librarian = new User("User3", "abc@gmail.com", "99998888", "111-1111", "abc123", "Librarian");
+        User user = new User("User1", "xyz@gmail.com", "99998787", "222-2222", "xyz123", "User");
+        User secondUser = new User("User2", "pqr@gmail.com", "99995656", "333-3333", "pqr123", "User");
 
         ArrayList<User> users = new ArrayList<User>();
         users.add(user);
