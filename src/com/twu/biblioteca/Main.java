@@ -1,5 +1,16 @@
 package com.twu.biblioteca;
 
+import com.twu.authentication.LoginAuthentication;
+import com.twu.authentication.User;
+import com.twu.items.Book;
+import com.twu.items.ItemsController;
+import com.twu.items.LibrarySection;
+import com.twu.items.Movie;
+import com.twu.menuactions.Menu;
+import com.twu.menuactions.MenuActionPerformed;
+import com.twu.menuactions.MenuController;
+import com.twu.menuoptions.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;

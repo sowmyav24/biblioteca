@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.authentication.LoginAuthentication;
+import com.twu.menuactions.MenuController;
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;

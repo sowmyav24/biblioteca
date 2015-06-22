@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.authentication.LoginAuthentication;
+import com.twu.menuactions.MenuController;
+
 public class BibliotecaApp {
 
     private BibliotecaAppView bibliotecaAppView;
